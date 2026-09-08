@@ -1,0 +1,20 @@
+// oxlint-disable-next-line spiko/no-enum-declaration
+export enum EVM_PERMISSION_MANAGER_ROLE {
+  ADMIN = 0,
+  OPERATOR_EXCEPTIONAL = 1,
+  OPERATOR_DAILY = 2,
+  OPERATOR_ORACLE = 3,
+  BURNER = 4,
+  WHITELISTER = 5,
+  WHITELISTED = 6,
+}
+
+// oxlint-disable-next-line spiko/no-enum-declaration
+export enum STARKNET_PERMISSION_MANAGER_ROLE {
+  MINTER = 'MINTER_ROLE',
+  PAUSER = 'PAUSER_ROLE',
+  BURNER = 'BURNER_ROLE',
+  WHITELISTER = 'WHITELISTER_ROLE',
+  WHITELISTED = 'WHITELISTED_ROLE',
+  REDEMPTION_EXECUTOR = 'REDEMPTION_EXECUTOR_ROLE',
+}
