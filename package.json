@@ -6,7 +6,7 @@
   "scripts": {
     "typecheck": "tsc -b",
     "lint": "oxlint",
-    "format": "oxfmt --write .",
+    "format": "oxfmt --write --config=.oxfmtrc.jsonc .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

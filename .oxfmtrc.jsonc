@@ -17,15 +17,6 @@
       "unknown",
     ],
   },
-  "sortTailwindcss": {
-    "stylesheet": "./src/global.css",
-    "functions": ["cn", "cva", "clsx"],
-  },
-  "ignorePatterns": [
-    "__generated__",
-    "*.gen.ts",
-    "*.gen.json",
-    "build",
-    "storybook-static",
-  ],
+  "sortTailwindcss": { "stylesheet": "./src/global.css", "functions": ["cn", "cva", "clsx"] },
+  "ignorePatterns": ["__generated__", "*.gen.ts", "*.gen.json", "build", "storybook-static"],
 }
