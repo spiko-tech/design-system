@@ -1,9 +1,9 @@
-import { Locale } from "date-fns/locale";
-import { useState } from "react";
-import { Button } from "../button/button.js";
-import { Calendar } from "../calendar/calendar.js";
-import { Popover, PopoverContent, PopoverTrigger } from "../popover/popover.js";
-import { Icon } from "../../assets/icons/core/Icon.js";
+import { Icon } from '@/assets/icons/core/Icon.js';
+import { Locale } from 'date-fns/locale';
+import { useState } from 'react';
+import { Button } from '../button/button.js';
+import { Calendar } from '../calendar/calendar.js';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover/popover.js';
 
 export const DatePicker = ({
   date,
@@ -27,11 +27,7 @@ export const DatePicker = ({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button
-          variant={"outline"}
-          className="spiko-text-sm-regular"
-          disabled={disabled}
-        >
+        <Button variant={'outline'} className="spiko-text-sm-regular" disabled={disabled}>
           {date ? formatDate(date) : <span>{placeholder}</span>}
           <Icon.Calendar className="ml-auto size-4 opacity-50" />
         </Button>
@@ -42,22 +38,12 @@ export const DatePicker = ({
           selected={date}
           onSelect={(date) => {
             if (date !== undefined) {
-              onChange(
-                new Date(
-                  Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()),
-                ),
-              );
+              onChange(new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())));
             }
 
             setOpen(false);
           }}
-          disabled={(date) =>
-            !availableDate(
-              new Date(
-                Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()),
-              ),
-            )
-          }
+          disabled={(date) => !availableDate(new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())))}
           locale={locale}
         />
       </PopoverContent>

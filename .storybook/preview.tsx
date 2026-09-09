@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
 import { withThemeByClassName } from '@storybook/addon-themes';
-import '../src/vendor/ui-utils/styles/global.css';
+import '../src/global.css';
 
 const preview: Preview = {
   decorators: [withThemeByClassName({ themes: { light: 'light', dark: 'dark' }, defaultTheme: 'light' })],

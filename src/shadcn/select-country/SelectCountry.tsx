@@ -1,30 +1,21 @@
-import { useState } from "react";
-import * as RPNI from "react-phone-number-input";
-import {
-  COUNTRY_CODES_ALPHA2,
-  CountryCodeAlpha2,
-} from "../../shared/Countries.js";
-import { formatCountry } from "../../shared/Formatters.js";
-import { LocaleLanguage } from "../../shared/LocaleLanguage.js";
-import { cn } from "../../utils.js";
-import { Button } from "../button/button.js";
-import {
-  Command,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "../command/command.js";
-import { Popover, PopoverContent, PopoverTrigger } from "../popover/popover.js";
-import { Flag } from "../../assets/icons/flags/Flag.js";
-import { Icon } from "../../assets/icons/core/Icon.js";
+import { Icon } from '@/assets/icons/core/Icon.js';
+import { Flag } from '@/assets/icons/flags/Flag.js';
+import { COUNTRY_CODES_ALPHA2, CountryCodeAlpha2 } from '@/shared/Countries.js';
+import { formatCountry } from '@/shared/Formatters.js';
+import { LocaleLanguage } from '@/shared/LocaleLanguage.js';
+import { cn } from '@/utils.js';
+import { useState } from 'react';
+import * as RPNI from 'react-phone-number-input';
+import { Button } from '../button/button.js';
+import { Command, CommandGroup, CommandInput, CommandItem, CommandList } from '../command/command.js';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover/popover.js';
 
 export const SelectCountry = ({
   country,
   onSelect,
   locale,
-  placeholder = "",
-  className = "",
+  placeholder = '',
+  className = '',
   showFlagInTrigger = false,
   excludeCountries = new Set(),
 }: {
@@ -37,9 +28,7 @@ export const SelectCountry = ({
   excludeCountries?: Set<CountryCodeAlpha2>;
 }) => {
   const [open, setOpen] = useState(false);
-  const countryCodes = COUNTRY_CODES_ALPHA2.filter(
-    (alpha2) => !excludeCountries.has(alpha2),
-  );
+  const countryCodes = COUNTRY_CODES_ALPHA2.filter((alpha2) => !excludeCountries.has(alpha2));
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -48,15 +37,13 @@ export const SelectCountry = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn("w-full justify-between", className)}
+          className={cn('w-full justify-between', className)}
         >
           {country !== undefined ? (
             <span className="flex items-center gap-2 spiko-text-base-regular">
-              {showFlagInTrigger &&
-                country !== undefined &&
-                RPNI.isSupportedCountry(country) && (
-                  <Flag country={country} countryName={country} />
-                )}
+              {showFlagInTrigger && country !== undefined && RPNI.isSupportedCountry(country) && (
+                <Flag country={country} countryName={country} />
+              )}
               {formatCountry(country, locale)}
             </span>
           ) : (
@@ -67,15 +54,12 @@ export const SelectCountry = ({
       </PopoverTrigger>
       <PopoverContent
         align="start"
-        style={{ width: "var(--radix-popover-trigger-width)" }}
+        style={{ width: 'var(--radix-popover-trigger-width)' }}
         className="overflow-hidden p-0"
       >
         <Command className="flex flex-col overflow-hidden">
           <CommandInput placeholder={placeholder} className="shrink-0" />
-          <div
-            className="max-h-75 overflow-x-hidden overflow-y-auto"
-            onWheel={(e) => e.stopPropagation()}
-          >
+          <div className="max-h-75 overflow-x-hidden overflow-y-auto" onWheel={(e) => e.stopPropagation()}>
             <CommandList className="max-h-none">
               <CommandGroup>
                 {countryCodes.map((alpha2) => (
@@ -92,14 +76,9 @@ export const SelectCountry = ({
                       {RPNI.isSupportedCountry(alpha2) ? (
                         <Flag country={alpha2} countryName={alpha2} />
                       ) : (
-                        <span
-                          className="h-4 w-6 shrink-0 rounded-xs bg-muted"
-                          aria-hidden
-                        />
+                        <span className="h-4 w-6 shrink-0 rounded-xs bg-muted" aria-hidden />
                       )}
-                      <p className="spiko-text-sm-regular">
-                        {formatCountry(alpha2, locale)}
-                      </p>
+                      <p className="spiko-text-sm-regular">{formatCountry(alpha2, locale)}</p>
                     </div>
                     {country === alpha2 && <Icon.Check className="size-4" />}
                   </CommandItem>

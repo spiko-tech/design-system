@@ -1,22 +1,22 @@
-import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
-import { cn } from "../../utils.js";
-import { Button } from "../button/button.js";
-import { Input } from "../input/input.js";
+import { cn } from '@/utils.js';
+import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { useState } from 'react';
+import { Button } from '../button/button.js';
+import { Input } from '../input/input.js';
 
 const PasswordInput = ({
   ref,
   className,
   ...props
-}: React.ComponentProps<"input"> & { ref?: React.Ref<HTMLInputElement> }) => {
+}: React.ComponentProps<'input'> & { ref?: React.Ref<HTMLInputElement> }) => {
   const [showPassword, setShowPassword] = useState(false);
   const disabled = props.disabled;
 
   return (
     <div className="relative">
       <Input
-        type={showPassword ? "text" : "password"}
-        className={cn("hide-password-toggle pr-10", className)}
+        type={showPassword ? 'text' : 'password'}
+        className={cn('hide-password-toggle pr-10', className)}
         ref={ref}
         {...props}
       />
@@ -33,9 +33,7 @@ const PasswordInput = ({
         ) : (
           <EyeClosedIcon className="size-4" aria-hidden="true" />
         )}
-        <span className="sr-only">
-          {showPassword ? "Hide password" : "Show password"}
-        </span>
+        <span className="sr-only">{showPassword ? 'Hide password' : 'Show password'}</span>
       </Button>
 
       {/* hides browsers password toggles */}
@@ -50,6 +48,6 @@ const PasswordInput = ({
     </div>
   );
 };
-PasswordInput.displayName = "PasswordInput";
+PasswordInput.displayName = 'PasswordInput';
 
 export { PasswordInput };

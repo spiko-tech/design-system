@@ -1,12 +1,5 @@
 /* oxlint-disable no-restricted-imports */
-import {
-  CaretDownIcon,
-  CheckIcon,
-  DesktopIcon,
-  MoonIcon,
-  PersonIcon,
-  SunIcon,
-} from "@radix-ui/react-icons";
+import { CaretDownIcon, CheckIcon, DesktopIcon, MoonIcon, PersonIcon, SunIcon } from '@radix-ui/react-icons';
 import {
   AlertCircle,
   AlertTriangle,
@@ -167,14 +160,14 @@ import {
   Wallet,
   X,
   Zap,
-} from "lucide-react";
-import { ArrowLeftRightCircle } from "./ArrowLeftRightCircle.js";
-import { ArrowUpRightCircle } from "./ArrowUpRightCircle.js";
-import BrandBg from "./BrandBg.js";
-import CheckMark from "./CheckMark.js";
-import { FileTextCentered } from "./FileTextCentered.js";
-import { PartyPopperGradient } from "./PartyPopperGradient.js";
-import Spinner from "./spinner.js";
+} from 'lucide-react';
+import { ArrowLeftRightCircle } from './ArrowLeftRightCircle.js';
+import { ArrowUpRightCircle } from './ArrowUpRightCircle.js';
+import BrandBg from './BrandBg.js';
+import CheckMark from './CheckMark.js';
+import { FileTextCentered } from './FileTextCentered.js';
+import { PartyPopperGradient } from './PartyPopperGradient.js';
+import Spinner from './spinner.js';
 
 export const Icon = {
   AlertCircle,

@@ -1,31 +1,29 @@
-import { LocaleLanguage } from "../../shared/LocaleLanguage.js";
-import React from "react";
-import { NumericFormat } from "react-number-format";
-import { cn } from "../../utils.js";
-import { Input } from "../input/input.js";
+import { LocaleLanguage } from '@/shared/LocaleLanguage.js';
+import { cn } from '@/utils.js';
+import React from 'react';
+import { NumericFormat } from 'react-number-format';
+import { Input } from '../input/input.js';
 
-export interface AmountInputProps extends React.ComponentProps<
-  typeof NumericFormat
-> {
+export interface AmountInputProps extends React.ComponentProps<typeof NumericFormat> {
   locale: LocaleLanguage;
 }
 
 const THOUSAND_SEPARATOR_BY_LOCALE: Record<LocaleLanguage, string> = {
-  en: ",",
-  es: ".",
-  it: ".",
-  de: ".",
-  fr: " ", // non-breaking space
-  nl: ".",
+  en: ',',
+  es: '.',
+  it: '.',
+  de: '.',
+  fr: ' ', // non-breaking space
+  nl: '.',
 };
 
 const DECIMAL_SEPARATOR_BY_LOCALE: Record<LocaleLanguage, string> = {
-  en: ".",
-  es: ",",
-  it: ",",
-  de: ",",
-  fr: ",",
-  nl: ",",
+  en: '.',
+  es: ',',
+  it: ',',
+  de: ',',
+  fr: ',',
+  nl: ',',
 };
 /**
  *
@@ -38,11 +36,11 @@ const AmountInput = ({
   className,
   locale,
   type,
-  inputMode = "text",
+  inputMode = 'text',
   ...props
 }: AmountInputProps & {
   ref?: React.Ref<React.ComponentRef<typeof NumericFormat>>;
-  inputMode?: "text" | "numeric" | "decimal";
+  inputMode?: 'text' | 'numeric' | 'decimal';
   disabled?: boolean;
 }) => (
   <NumericFormat
@@ -55,12 +53,12 @@ const AmountInput = ({
     customInput={Input}
     inputMode={inputMode}
     className={cn(
-      "border-none text-right text-xl shadow-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-0 md:text-xl",
-      className,
+      'border-none text-right text-xl shadow-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-0 md:text-xl',
+      className
     )}
     disabled={props.disabled}
   />
 );
-AmountInput.displayName = "AmountInput";
+AmountInput.displayName = 'AmountInput';
 
 export { AmountInput };

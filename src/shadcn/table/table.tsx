@@ -1,7 +1,7 @@
 'use client';
 
+import { cn } from '@/utils.js';
 import * as React from 'react';
-import { cn } from '../../utils.js';
 
 const Table = ({ className, ...props }: React.ComponentProps<'table'>) => {
   return (

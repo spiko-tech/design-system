@@ -1,30 +1,30 @@
-import { Network } from "../../../shared/Network.js";
-import { ArbitrumIcon } from "./ArbitrumIcon.js";
-import { BaseIcon } from "./BaseIcon.js";
-import { EthereumIcon } from "./EthereumIcon.js";
-import { EtherlinkIcon } from "./EtherlinkIcon.js";
-import { PolygonIcon } from "./PolygonIcon.js";
-import { SolanaIcon } from "./SolanaIcon.js";
-import { StarknetIcon } from "./StarknetIcon.js";
-import { StellarIcon } from "./StellarIcon.js";
+import { Network } from '@/shared/Network.js';
+import { ArbitrumIcon } from './ArbitrumIcon.js';
+import { BaseIcon } from './BaseIcon.js';
+import { EthereumIcon } from './EthereumIcon.js';
+import { EtherlinkIcon } from './EtherlinkIcon.js';
+import { PolygonIcon } from './PolygonIcon.js';
+import { SolanaIcon } from './SolanaIcon.js';
+import { StarknetIcon } from './StarknetIcon.js';
+import { StellarIcon } from './StellarIcon.js';
 
 const displayNameByNetwork = {
-  Ethereum: "Ethereum",
-  Sepolia: "Sepolia",
-  Polygon: "Polygon",
-  PolygonAmoy: "Amoy",
-  Base: "Base",
-  BaseSepolia: "BaseSepolia",
-  Arbitrum: "Arbitrum",
-  ArbitrumSepolia: "ArbitrumSepolia",
-  Etherlink: "Etherlink",
-  EtherlinkTestnet: "EtherlinkTestnet",
-  Starknet: "Starknet",
-  StarknetSepolia: "StarknetSepolia",
-  Stellar: "Stellar",
-  StellarTestnet: "StellarTestnet",
-  Solana: "Solana",
-  SolanaDevnet: "SolanaDevnet",
+  Ethereum: 'Ethereum',
+  Sepolia: 'Sepolia',
+  Polygon: 'Polygon',
+  PolygonAmoy: 'Amoy',
+  Base: 'Base',
+  BaseSepolia: 'BaseSepolia',
+  Arbitrum: 'Arbitrum',
+  ArbitrumSepolia: 'ArbitrumSepolia',
+  Etherlink: 'Etherlink',
+  EtherlinkTestnet: 'EtherlinkTestnet',
+  Starknet: 'Starknet',
+  StarknetSepolia: 'StarknetSepolia',
+  Stellar: 'Stellar',
+  StellarTestnet: 'StellarTestnet',
+  Solana: 'Solana',
+  SolanaDevnet: 'SolanaDevnet',
 };
 
 const iconByNetwork: Record<Network, React.FC<{ className?: string }>> = {
@@ -66,9 +66,7 @@ export const NetworkIcon = ({
   return (
     <div className="flex flex-row items-center gap-1">
       <IconComponent className={className} />
-      {displayName && (
-        <div className="inline">{displayNameByNetwork[network]}</div>
-      )}
+      {displayName && <div className="inline">{displayNameByNetwork[network]}</div>}
     </div>
   );
 };

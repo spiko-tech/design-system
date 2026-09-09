@@ -12,14 +12,7 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  resolve: {
-    alias: {
-      '@spiko/ui/utils': path.resolve(dirname, 'src/vendor/ui-utils/index.ts'),
-      '@spiko/constants': path.resolve(dirname, 'src/vendor/constants/index.ts'),
-      '@spiko/primitives': path.resolve(dirname, 'src/vendor/primitives'),
-      '@spiko/api-errors': path.resolve(dirname, 'src/vendor/api-errors.ts'),
-    },
-  },
+  resolve: { alias: { '@': path.resolve(dirname, 'src') } },
   test: {
     projects: [
       {

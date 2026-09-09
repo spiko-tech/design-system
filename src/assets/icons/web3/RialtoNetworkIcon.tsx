@@ -1,27 +1,23 @@
-import { RialtoNetwork } from "../../../shared/Network.js";
-import { ArbitrumIcon } from "./ArbitrumIcon.js";
-import { BaseIcon } from "./BaseIcon.js";
-import { BinanceSmartChainIcon } from "./BinanceSmartChainIcon.js";
-import { EthereumIcon } from "./EthereumIcon.js";
-import { PolygonIcon } from "./PolygonIcon.js";
-import { SolanaIcon } from "./SolanaIcon.js";
+import { RialtoNetwork } from '@/shared/Network.js';
+import { ArbitrumIcon } from './ArbitrumIcon.js';
+import { BaseIcon } from './BaseIcon.js';
+import { BinanceSmartChainIcon } from './BinanceSmartChainIcon.js';
+import { EthereumIcon } from './EthereumIcon.js';
+import { PolygonIcon } from './PolygonIcon.js';
+import { SolanaIcon } from './SolanaIcon.js';
 
-export const RialtoNetworkIcon = ({
-  rialtoNetwork,
-}: {
-  rialtoNetwork: RialtoNetwork;
-}) => {
-  if (rialtoNetwork === "Arbitrum") {
+export const RialtoNetworkIcon = ({ rialtoNetwork }: { rialtoNetwork: RialtoNetwork }) => {
+  if (rialtoNetwork === 'Arbitrum') {
     return <ArbitrumIcon className="h-4 w-4" />;
-  } else if (rialtoNetwork === "Base") {
+  } else if (rialtoNetwork === 'Base') {
     return <BaseIcon className="h-4 w-4" />;
-  } else if (rialtoNetwork === "Binance Smart Chain") {
+  } else if (rialtoNetwork === 'Binance Smart Chain') {
     return <BinanceSmartChainIcon className="h-4 w-4" />;
-  } else if (rialtoNetwork === "Ethereum") {
+  } else if (rialtoNetwork === 'Ethereum') {
     return <EthereumIcon className="h-4 w-4" />;
-  } else if (rialtoNetwork === "Polygon") {
+  } else if (rialtoNetwork === 'Polygon') {
     return <PolygonIcon className="h-4 w-4" />;
-  } else if (rialtoNetwork === "Solana") {
+  } else if (rialtoNetwork === 'Solana') {
     return <SolanaIcon className="h-4 w-4" />;
   }
   // Exhaustive check - TypeScript ensures all RialtoNetwork values are handled

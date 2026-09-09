@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '../select/select.js';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '../select/select.js';
 
 const meta: Meta<typeof Select> = { component: Select, title: 'UI/Select', tags: ['autodocs'] };
 

@@ -1,12 +1,12 @@
-import { Combobox as ComboboxPrimitive } from "@base-ui/react";
-import { useCallback, useState } from "react";
-import { cn } from "../../utils.js";
-import { Skeleton } from "../skeleton/skeleton.js";
+import { cn } from '@/utils.js';
+import { Combobox as ComboboxPrimitive } from '@base-ui/react';
+import { useCallback, useState } from 'react';
+import { Skeleton } from '../skeleton/skeleton.js';
 
 export const SearchInput = <SuggestionT,>({
   suggestions,
-  placeholder = "",
-  emptyMessage = "...",
+  placeholder = '',
+  emptyMessage = '...',
   value,
   onChange,
   onSelect,
@@ -37,41 +37,36 @@ export const SearchInput = <SuggestionT,>({
   const [isOpen, setOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const showPopup =
-    isOpen && (showForEmptyValue || !!value) && (isLoading || !!suggestions);
+  const showPopup = isOpen && (showForEmptyValue || !!value) && (isLoading || !!suggestions);
 
   const handleValueChange = useCallback(
     (nextSelectedId: string | null) => {
       if (nextSelectedId === null) return;
       setSelectedId(nextSelectedId);
-      const suggestion = suggestions?.find(
-        (s) => suggestionToId(s) === nextSelectedId,
-      );
+      const suggestion = suggestions?.find((s) => suggestionToId(s) === nextSelectedId);
       if (suggestion) {
         onSelect(suggestion);
         onChange(suggestionToValue(suggestion));
       }
     },
-    [suggestions, suggestionToId, suggestionToValue, onSelect, onChange],
+    [suggestions, suggestionToId, suggestionToValue, onSelect, onChange]
   );
 
   const itemToStringLabel = useCallback(
     (itemValue: string) => {
-      const suggestion = suggestions?.find(
-        (s) => suggestionToId(s) === itemValue,
-      );
-      return suggestion ? suggestionToValue(suggestion) : "";
+      const suggestion = suggestions?.find((s) => suggestionToId(s) === itemValue);
+      return suggestion ? suggestionToValue(suggestion) : '';
     },
-    [suggestions, suggestionToId, suggestionToValue],
+    [suggestions, suggestionToId, suggestionToValue]
   );
 
   const handleInputValueChange = useCallback(
     (nextValue: string, eventDetails: { reason: string }) => {
-      if (eventDetails.reason === "input-change") {
+      if (eventDetails.reason === 'input-change') {
         onChange(nextValue);
       }
     },
-    [onChange],
+    [onChange]
   );
 
   const handleOpenChange = useCallback(
@@ -81,7 +76,7 @@ export const SearchInput = <SuggestionT,>({
         onBlur?.();
       }
     },
-    [onBlur],
+    [onBlur]
   );
 
   return (
@@ -100,25 +95,19 @@ export const SearchInput = <SuggestionT,>({
         placeholder={placeholder}
         disabled={disabled}
         className={cn(
-          "shadow-sm flex h-12 w-full [appearance:textfield] rounded-md border border-input bg-transparent px-3 py-3 text-base transition-colors file:border-0 file:bg-transparent file:spiko-text-base-medium file:text-base placeholder:text-text-secondary focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
-          className,
+          'shadow-sm flex h-12 w-full [appearance:textfield] rounded-md border border-input bg-transparent px-3 py-3 text-base transition-colors file:border-0 file:bg-transparent file:spiko-text-base-medium file:text-base placeholder:text-text-secondary focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
+          className
         )}
       />
       <ComboboxPrimitive.Portal>
-        <ComboboxPrimitive.Positioner
-          side="bottom"
-          sideOffset={4}
-          className="pointer-events-auto z-50"
-        >
+        <ComboboxPrimitive.Positioner side="bottom" sideOffset={4} className="pointer-events-auto z-50">
           <ComboboxPrimitive.Popup className="max-h-50 w-(--anchor-width) animate-in overflow-y-auto rounded-xl bg-popover ring-1 ring-slate-200 outline-hidden fade-in-0 zoom-in-95">
             {isLoading ? (
               <div className="p-1">
                 <Skeleton className="h-8 w-full" />
               </div>
             ) : suggestions?.length === 0 ? (
-              <div className="rounded-xs px-2 py-3 text-center text-base select-none">
-                {emptyMessage}
-              </div>
+              <div className="rounded-xs px-2 py-3 text-center text-base select-none">{emptyMessage}</div>
             ) : (
               <ComboboxPrimitive.List className="scroll-py-1 overflow-y-auto p-1">
                 {suggestions?.map((suggestion) => (

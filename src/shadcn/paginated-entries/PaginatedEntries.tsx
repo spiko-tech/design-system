@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { cn } from "../../utils.js";
+import { cn } from '@/utils.js';
+import { useMemo } from 'react';
 import {
   Pagination,
   PaginationContent,
@@ -8,7 +8,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "../pagination/pagination.js";
+} from '../pagination/pagination.js';
 
 const getDisplayedPages = (page: number, maxPage: number) => {
   const displayedPages = [page - 1, page, page + 1];
@@ -44,10 +44,7 @@ export const PaginatedEntries = <EntryT,>({
   const virtualMaxPage = hasNextPage ? loadedMaxPage + 1 : loadedMaxPage;
 
   const displayedEntries = pages[page] ?? [];
-  const displayedPages = useMemo(
-    () => getDisplayedPages(page, virtualMaxPage),
-    [page, virtualMaxPage],
-  );
+  const displayedPages = useMemo(() => getDisplayedPages(page, virtualMaxPage), [page, virtualMaxPage]);
   const canPaginatePrevious = page > 0;
   const canPaginateNext = page < virtualMaxPage;
 
@@ -65,11 +62,7 @@ export const PaginatedEntries = <EntryT,>({
   const handlePageClick = (targetPage: number) => {
     if (targetPage <= loadedMaxPage) {
       setPage(targetPage);
-    } else if (
-      targetPage <= virtualMaxPage &&
-      hasNextPage &&
-      !isFetchingNextPage
-    ) {
+    } else if (targetPage <= virtualMaxPage && hasNextPage && !isFetchingNextPage) {
       setPage(targetPage);
       fetchNextPage();
     }
@@ -78,7 +71,7 @@ export const PaginatedEntries = <EntryT,>({
   const entriesComponent = renderPage ? (
     renderPage(displayedEntries)
   ) : (
-    <div className={cn("flex flex-col gap-4", className)}>
+    <div className={cn('flex flex-col gap-4', className)}>
       {displayedEntries.map((entry) => (
         <Entry key={entryToId(entry)} entry={entry} />
       ))}
@@ -89,8 +82,7 @@ export const PaginatedEntries = <EntryT,>({
 
   const showLeadingEllipsis = Math.min(...displayedPages) > 1;
   const showTrailingEllipsis =
-    Math.max(...displayedPages) < virtualMaxPage - 1 ||
-    (hasNextPage && !displayedPages.includes(virtualMaxPage));
+    Math.max(...displayedPages) < virtualMaxPage - 1 || (hasNextPage && !displayedPages.includes(virtualMaxPage));
 
   return (
     <div className="flex flex-col gap-4">
@@ -110,10 +102,7 @@ export const PaginatedEntries = <EntryT,>({
           {displayedPages.every((p) => p !== 0) && (
             <>
               <PaginationItem>
-                <PaginationLink
-                  onClick={() => setPage(0)}
-                  className="cursor-pointer"
-                >
+                <PaginationLink onClick={() => setPage(0)} className="cursor-pointer">
                   {1}
                 </PaginationLink>
               </PaginationItem>
@@ -126,11 +115,7 @@ export const PaginatedEntries = <EntryT,>({
           )}
           {displayedPages.map((p) => (
             <PaginationItem key={p}>
-              <PaginationLink
-                isActive={p === page}
-                onClick={() => handlePageClick(p)}
-                className="cursor-pointer"
-              >
+              <PaginationLink isActive={p === page} onClick={() => handlePageClick(p)} className="cursor-pointer">
                 {p + 1}
               </PaginationLink>
             </PaginationItem>
@@ -144,10 +129,7 @@ export const PaginatedEntries = <EntryT,>({
               )}
               {!hasNextPage && (
                 <PaginationItem>
-                  <PaginationLink
-                    onClick={() => handlePageClick(virtualMaxPage)}
-                    className="cursor-pointer"
-                  >
+                  <PaginationLink onClick={() => handlePageClick(virtualMaxPage)} className="cursor-pointer">
                     {virtualMaxPage + 1}
                   </PaginationLink>
                 </PaginationItem>

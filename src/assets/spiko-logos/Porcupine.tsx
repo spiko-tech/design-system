@@ -1,15 +1,12 @@
-import React from "react";
-import { cn } from "../../utils.js";
+import { cn } from '@/utils.js';
+import React from 'react';
 
 export const ChristmasPorcupine = ({
   ref,
   className,
-  color = "currentColor",
+  color = 'currentColor',
   ...props
-}: React.SVGAttributes<SVGSVGElement> & {
-  ref?: React.Ref<SVGSVGElement>;
-  color?: "currentColor";
-}) => {
+}: React.SVGAttributes<SVGSVGElement> & { ref?: React.Ref<SVGSVGElement>; color?: 'currentColor' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +14,7 @@ export const ChristmasPorcupine = ({
       height="109"
       viewBox="0 0 119 109"
       fill="none"
-      className={cn("text-foreground", className)}
+      className={cn('text-foreground', className)}
       ref={ref}
       {...props}
     >
@@ -75,16 +72,8 @@ export const ChristmasPorcupine = ({
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="2"
-            result="effect1_foregroundBlur_4230_142"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_4230_142" />
         </filter>
       </defs>
     </svg>
@@ -94,12 +83,9 @@ export const ChristmasPorcupine = ({
 export const ClassicPorcupine = ({
   ref,
   className,
-  color = "currentColor",
+  color = 'currentColor',
   ...props
-}: React.SVGAttributes<SVGSVGElement> & {
-  ref?: React.Ref<SVGSVGElement>;
-  color?: "currentColor";
-}) => {
+}: React.SVGAttributes<SVGSVGElement> & { ref?: React.Ref<SVGSVGElement>; color?: 'currentColor' }) => {
   return (
     <svg
       width="285"
@@ -107,7 +93,7 @@ export const ClassicPorcupine = ({
       viewBox="0 0 285 218"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("text-foreground", className)}
+      className={cn('text-foreground', className)}
       ref={ref}
       {...props}
     >

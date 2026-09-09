@@ -1,9 +1,9 @@
 'use client';
 
+import { cn } from '@/utils.js';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import * as React from 'react';
-import { cn } from '../../utils.js';
 
 const Tabs = ({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Root>) => (
   <TabsPrimitive.Root data-slot="tabs" className={cn('flex flex-col gap-2', className)} {...props} />

@@ -1,36 +1,19 @@
-import {
-  InputHTMLAttributes,
-  createContext,
-  useCallback,
-  useContext,
-} from "react";
-import RPNInput, * as RPNI from "react-phone-number-input";
-import { cn } from "../../utils.js";
-import { Button } from "../button/button.js";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "../command/command.js";
-import { Input } from "../input/input.js";
-import { Popover, PopoverContent, PopoverTrigger } from "../popover/popover.js";
-import { Flag } from "../../assets/icons/flags/Flag.js";
-import { Icon } from "../../assets/icons/core/Icon.js";
+import { Icon } from '@/assets/icons/core/Icon.js';
+import { Flag } from '@/assets/icons/flags/Flag.js';
+import { cn } from '@/utils.js';
+import { InputHTMLAttributes, createContext, useCallback, useContext } from 'react';
+import RPNInput, * as RPNI from 'react-phone-number-input';
+import { Button } from '../button/button.js';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../command/command.js';
+import { Input } from '../input/input.js';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover/popover.js';
 
-const PhoneInputContext = createContext<{
-  searchText: string;
-  noCountryFoundText: string;
-} | null>(null);
+const PhoneInputContext = createContext<{ searchText: string; noCountryFoundText: string } | null>(null);
 
 const usePhoneInputContext = () => {
   const context = useContext(PhoneInputContext);
   if (!context) {
-    throw new Error(
-      "PhoneInput compound components cannot be rendered outside the PhoneInput component",
-    );
+    throw new Error('PhoneInput compound components cannot be rendered outside the PhoneInput component');
   }
   return context;
 };
@@ -42,8 +25,8 @@ const PhoneInput = ({
   searchText,
   noCountryFoundText,
   ...props
-}: Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value"> &
-  Omit<RPNI.Props<typeof RPNInput>, "onChange"> & {
+}: Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> &
+  Omit<RPNI.Props<typeof RPNInput>, 'onChange'> & {
     onChange?: (value: RPNI.Value) => void;
     searchText: string;
     noCountryFoundText: string;
@@ -52,7 +35,7 @@ const PhoneInput = ({
     <PhoneInputContext.Provider value={{ searchText, noCountryFoundText }}>
       <RPNInput
         ref={ref}
-        className={cn("flex", className)}
+        className={cn('flex', className)}
         flagComponent={Flag}
         countrySelectComponent={CountrySelect}
         inputComponent={InputComponent}
@@ -65,26 +48,22 @@ const PhoneInput = ({
          *
          * @param {E164Number | undefined} value - The entered value
          */
-        onChange={(value) => onChange?.(value ?? ("" as RPNI.Value))}
+        onChange={(value) => onChange?.(value ?? ('' as RPNI.Value))}
         {...props}
       />
     </PhoneInputContext.Provider>
   );
 };
-PhoneInput.displayName = "PhoneInput";
+PhoneInput.displayName = 'PhoneInput';
 
 const InputComponent = ({
   ref,
   className,
   ...props
-}: React.ComponentProps<"input"> & { ref?: React.Ref<HTMLInputElement> }) => (
-  <Input
-    className={cn("rounded-s-none rounded-e-lg", className)}
-    {...props}
-    ref={ref}
-  />
+}: React.ComponentProps<'input'> & { ref?: React.Ref<HTMLInputElement> }) => (
+  <Input className={cn('rounded-s-none rounded-e-lg', className)} {...props} ref={ref} />
 );
-InputComponent.displayName = "InputComponent";
+InputComponent.displayName = 'InputComponent';
 
 const CountrySelect = ({
   disabled,
@@ -101,7 +80,7 @@ const CountrySelect = ({
     (country: RPNI.Country) => {
       onChange(country);
     },
-    [onChange],
+    [onChange]
   );
 
   const { noCountryFoundText, searchText } = usePhoneInputContext();
@@ -111,19 +90,12 @@ const CountrySelect = ({
       <PopoverTrigger asChild>
         <Button
           type="button"
-          variant={"outline"}
-          className={cn(
-            "flex gap-1 rounded-s-lg rounded-e-none border-r-0 pr-1 pl-3",
-          )}
+          variant={'outline'}
+          className={cn('flex gap-1 rounded-s-lg rounded-e-none border-r-0 pr-1 pl-3')}
           disabled={disabled}
         >
           <Flag country={value} countryName={value} />
-          <Icon.ChevronsUpDown
-            className={cn(
-              "size-4 opacity-50",
-              disabled ? "hidden" : "opacity-100",
-            )}
-          />
+          <Icon.ChevronsUpDown className={cn('size-4 opacity-50', disabled ? 'hidden' : 'opacity-100')} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[300px] p-0">
@@ -135,11 +107,7 @@ const CountrySelect = ({
               {options
                 .filter((x) => x.value)
                 .map((option) => (
-                  <CommandItem
-                    className="gap-2"
-                    key={option.value}
-                    onSelect={() => handleSelect(option.value)}
-                  >
+                  <CommandItem className="gap-2" key={option.value} onSelect={() => handleSelect(option.value)}>
                     <Flag country={option.value} countryName={option.label} />
                     <span className="flex-1 text-sm">{option.label}</span>
                     {option.value && (
@@ -148,10 +116,7 @@ const CountrySelect = ({
                       </span>
                     )}
                     <Icon.Check
-                      className={cn(
-                        "ml-auto size-4",
-                        option.value === value ? "opacity-100" : "opacity-0",
-                      )}
+                      className={cn('ml-auto size-4', option.value === value ? 'opacity-100' : 'opacity-0')}
                     />
                   </CommandItem>
                 ))}
