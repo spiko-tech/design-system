@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@spiko/ui/utils';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 import { Icon } from '../../spiko/Icon/Icon.js';
 
 const Accordion = ({ ...props }: React.ComponentProps<typeof AccordionPrimitive.Root>) => {

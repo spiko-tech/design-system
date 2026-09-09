@@ -1,10 +1,10 @@
 /* oxlint-disable max-lines -- pre-existing legacy: file exceeds 400 lines. Refactor opportunity. */
 'use client';
 
-import { cn } from '@spiko/ui/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import { Slot as SlotPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 import { Icon } from '../../spiko/Icon/Icon.js';
 import { useIsMobile } from '../hooks/use-mobile.js';
 import { Button } from './button.js';

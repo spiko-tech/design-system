@@ -1,0 +1,15 @@
+export type ShareClassSymbol =
+  | "EUTBL"
+  | "USTBL"
+  | "eurUSTBL"
+  | "SPKCC"
+  | "eurSPKCC"
+  | "UKTBL"
+  | "eurUKTBL"
+  | "chfSAFO"
+  | "eurSAFO"
+  | "eurSAFOd"
+  | "gbpSAFO"
+  | "gbpSAFOd"
+  | "SAFO"
+  | "SAFOd";

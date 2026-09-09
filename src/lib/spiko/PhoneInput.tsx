@@ -1,6 +1,6 @@
-import { cn } from '@spiko/ui/utils';
 import { InputHTMLAttributes, createContext, useCallback, useContext } from 'react';
 import RPNInput, * as RPNI from 'react-phone-number-input';
+import { cn } from '../../utils.js';
 import { Button } from '../shadcn/ui/button.js';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../shadcn/ui/command.js';
 import { Input } from '../shadcn/ui/input.js';

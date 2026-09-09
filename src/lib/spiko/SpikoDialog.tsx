@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react';
-import { cn } from '@spiko/ui/utils';
 import { cva, VariantProps } from 'class-variance-authority';
+import { cn } from '../../utils.js';
 import { Button, type ButtonProps } from '../shadcn/ui/button.js';
 import {
   Dialog,

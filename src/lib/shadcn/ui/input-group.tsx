@@ -1,6 +1,6 @@
-import { cn } from '@spiko/ui/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 import { Button } from './button';
 import { Input } from './input';
 import { Textarea } from './textarea';

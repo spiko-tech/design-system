@@ -1,5 +1,5 @@
-import { cn } from '@spiko/ui/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../../utils.js';
 import { Icon } from './Icon/Icon.js';
 
 const defaultVariant = 'info';

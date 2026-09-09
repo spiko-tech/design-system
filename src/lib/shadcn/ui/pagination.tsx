@@ -1,5 +1,5 @@
-import { cn } from '@spiko/ui/utils';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 import { Icon } from '../../spiko/Icon/Icon.js';
 import { ButtonProps, buttonVariants } from './button.js';
 

@@ -1,7 +1,7 @@
 import { CopyIcon } from '@radix-ui/react-icons';
-import { cn } from '@spiko/ui/utils';
 import { toast } from 'sonner';
 import { useT } from 'talkr';
+import { cn } from '../../utils.js';
 
 export const CopyToClipboard = (props: { text: string; className?: string }) => {
   const { T } = useT();

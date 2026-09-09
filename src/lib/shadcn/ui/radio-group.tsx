@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@spiko/ui/utils';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 import { Icon } from '../../spiko/Icon/Icon.js';
 
 const RadioGroup = ({ className, ...props }: React.ComponentProps<typeof RadioGroupPrimitive.Root>) => (

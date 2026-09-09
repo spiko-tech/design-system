@@ -1,5 +1,5 @@
-import { cn } from '@spiko/ui/utils';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 
 const Input = ({ className, type, ...props }: React.ComponentProps<'input'>) => (
   <input

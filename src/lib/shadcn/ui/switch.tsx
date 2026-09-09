@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@spiko/ui/utils';
 import { Switch as SwitchPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 
 const Switch = ({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) => (
   <SwitchPrimitive.Root

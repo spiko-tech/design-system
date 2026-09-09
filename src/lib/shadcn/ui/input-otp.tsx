@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@spiko/ui/utils';
 import { OTPInput, OTPInputContext } from 'input-otp';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 import { Icon } from '../../spiko/Icon/Icon.js';
 
 declare global {

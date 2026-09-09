@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@spiko/ui/utils';
 import { Avatar as AvatarPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../../utils.js';
 
 const Avatar = ({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Root>) => {
   return (

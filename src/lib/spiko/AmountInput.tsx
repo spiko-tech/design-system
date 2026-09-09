@@ -1,14 +1,32 @@
-import { LocaleLanguage } from '@spiko/constants';
-import { cn } from '@spiko/ui/utils';
-import { Match } from 'effect';
-import React from 'react';
-import { NumericFormat } from 'react-number-format';
-import { Input } from '../shadcn/ui/input.js';
+import { LocaleLanguage } from "../../shared/LocaleLanguage.js";
+import React from "react";
+import { NumericFormat } from "react-number-format";
+import { cn } from "../../utils.js";
+import { Input } from "../shadcn/ui/input.js";
 
-export interface AmountInputProps extends React.ComponentProps<typeof NumericFormat> {
+export interface AmountInputProps extends React.ComponentProps<
+  typeof NumericFormat
+> {
   locale: LocaleLanguage;
 }
 
+const THOUSAND_SEPARATOR_BY_LOCALE: Record<LocaleLanguage, string> = {
+  en: ",",
+  es: ".",
+  it: ".",
+  de: ".",
+  fr: " ", // non-breaking space
+  nl: ".",
+};
+
+const DECIMAL_SEPARATOR_BY_LOCALE: Record<LocaleLanguage, string> = {
+  en: ".",
+  es: ",",
+  it: ",",
+  de: ",",
+  fr: ",",
+  nl: ",",
+};
 /**
  *
  * IMPORTANT IMPORTANT IMPORTANT IMPORTANT
@@ -20,45 +38,29 @@ const AmountInput = ({
   className,
   locale,
   type,
-  inputMode = 'text',
+  inputMode = "text",
   ...props
 }: AmountInputProps & {
   ref?: React.Ref<React.ComponentRef<typeof NumericFormat>>;
-  inputMode?: 'text' | 'numeric' | 'decimal';
+  inputMode?: "text" | "numeric" | "decimal";
   disabled?: boolean;
 }) => (
   <NumericFormat
     {...props}
     allowNegative={false}
     valueIsNumericString={true}
-    thousandSeparator={Match.value(locale).pipe(
-      Match.when('en', () => ','),
-      Match.when('es', () => '.'),
-      Match.when('it', () => '.'),
-      Match.when('de', () => '.'),
-      Match.when('fr', () => ' '), // non-breaking space
-      Match.when('nl', () => '.'),
-      Match.exhaustive
-    )}
-    decimalSeparator={Match.value(locale).pipe(
-      Match.when('en', () => '.'),
-      Match.when('es', () => ','),
-      Match.when('it', () => ','),
-      Match.when('de', () => ','),
-      Match.when('fr', () => ','),
-      Match.when('nl', () => ','),
-      Match.exhaustive
-    )}
+    thousandSeparator={THOUSAND_SEPARATOR_BY_LOCALE[locale]}
+    decimalSeparator={DECIMAL_SEPARATOR_BY_LOCALE[locale]}
     placeholder="0"
     customInput={Input}
     inputMode={inputMode}
     className={cn(
-      'border-none text-right text-xl shadow-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-0 md:text-xl',
-      className
+      "border-none text-right text-xl shadow-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-0 md:text-xl",
+      className,
     )}
     disabled={props.disabled}
   />
 );
-AmountInput.displayName = 'AmountInput';
+AmountInput.displayName = "AmountInput";
 
 export { AmountInput };

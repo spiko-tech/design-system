@@ -20,12 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "paths": {
-      "@spiko/ui/utils": ["./src/vendor/ui-utils/index.ts"],
-      "@spiko/primitives/*": ["./src/vendor/primitives/*"],
-      "@spiko/constants": ["./src/vendor/constants/index.ts"],
-      "@spiko/api-errors": ["./src/vendor/api-errors.ts"]
-    }
+    "paths": {}
   },
   "include": ["src", ".storybook"]
 }

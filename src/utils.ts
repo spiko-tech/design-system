@@ -27,5 +27,3 @@ const twMerge = extendTailwindMerge<'spiko-heading' | 'spiko-text'>({
 });
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
-
-export * from './downloadBufferAsFile.js';

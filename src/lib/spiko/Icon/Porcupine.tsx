@@ -1,5 +1,5 @@
-import { cn } from '@spiko/ui/utils';
 import React from 'react';
+import { cn } from '../../../utils.js';
 
 export const ChristmasPorcupine = ({
   ref,

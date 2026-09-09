@@ -1,6 +1,6 @@
 import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
-import { cn } from '@spiko/ui/utils';
 import { useState } from 'react';
+import { cn } from '../../utils.js';
 import { Button } from '../shadcn/ui/button.js';
 import { Input } from '../shadcn/ui/input.js';
 

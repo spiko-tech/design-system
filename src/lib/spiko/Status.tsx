@@ -1,6 +1,8 @@
-import { cn } from '@spiko/ui/utils';
 import React from 'react';
+import { cn } from '../../utils.js';
 
+// Should use variants instead
+// Or at least variants
 const STATUS_COLORS = {
   green: 'bg-green-100 text-green-700',
   gray: 'bg-gray-100 text-gray-700',

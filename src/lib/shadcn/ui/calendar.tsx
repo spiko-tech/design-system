@@ -2,9 +2,9 @@
 
 import type { DayButtonProps, ChevronProps } from 'react-day-picker';
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from '@radix-ui/react-icons';
-import { cn } from '@spiko/ui/utils';
 import * as React from 'react';
 import { DayPicker, getDefaultClassNames } from 'react-day-picker';
+import { cn } from '../../../utils.js';
 import { Button, buttonVariants } from './button.js';
 
 const Calendar = ({

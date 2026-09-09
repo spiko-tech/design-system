@@ -1,6 +1,6 @@
 import { Combobox as ComboboxPrimitive } from '@base-ui/react';
-import { cn } from '@spiko/ui/utils';
 import { useCallback, useState } from 'react';
+import { cn } from '../../utils.js';
 import { Skeleton } from '../shadcn/ui/skeleton.js';
 
 export const SearchInput = <SuggestionT,>({
@@ -101,7 +101,7 @@ export const SearchInput = <SuggestionT,>({
       />
       <ComboboxPrimitive.Portal>
         <ComboboxPrimitive.Positioner side="bottom" sideOffset={4} className="pointer-events-auto z-50">
-          <ComboboxPrimitive.Popup className="max-h-[200px] w-(--anchor-width) animate-in overflow-y-auto rounded-xl bg-popover ring-1 ring-slate-200 outline-hidden fade-in-0 zoom-in-95">
+          <ComboboxPrimitive.Popup className="max-h-50 w-(--anchor-width) animate-in overflow-y-auto rounded-xl bg-popover ring-1 ring-slate-200 outline-hidden fade-in-0 zoom-in-95">
             {isLoading ? (
               <div className="p-1">
                 <Skeleton className="h-8 w-full" />

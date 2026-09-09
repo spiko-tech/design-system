@@ -1,5 +1,5 @@
-import { cn } from '@spiko/ui/utils';
 import { useMemo } from 'react';
+import { cn } from '../../utils.js';
 import {
   Pagination,
   PaginationContent,
