@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Checkbox } from './checkbox.js';
 import { Label } from './label.js';
 
-const meta: Meta<typeof Checkbox> = {
-  component: Checkbox,
-  title: 'UI/Checkbox',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Checkbox> = { component: Checkbox, title: 'UI/Checkbox', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Checkbox>;

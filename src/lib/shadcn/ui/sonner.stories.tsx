@@ -3,11 +3,7 @@ import { toast } from 'sonner';
 import { Button } from './button.js';
 import { Toaster } from './sonner.js';
 
-const meta: Meta<typeof Toaster> = {
-  component: Toaster,
-  title: 'UI/Toaster',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Toaster> = { component: Toaster, title: 'UI/Toaster', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Toaster>;

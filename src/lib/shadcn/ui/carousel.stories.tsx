@@ -1,11 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Carousel, CarouselContent, CarouselIndicator, CarouselItem, CarouselNext, CarouselPrevious } from './carousel.js';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselIndicator,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from './carousel.js';
 
-const meta: Meta<typeof Carousel> = {
-  component: Carousel,
-  title: 'UI/Carousel',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Carousel> = { component: Carousel, title: 'UI/Carousel', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Carousel>;

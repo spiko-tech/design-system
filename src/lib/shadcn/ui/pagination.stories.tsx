@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './pagination.js';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from './pagination.js';
 
-const meta: Meta<typeof Pagination> = {
-  component: Pagination,
-  title: 'UI/Pagination',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Pagination> = { component: Pagination, title: 'UI/Pagination', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Pagination>;

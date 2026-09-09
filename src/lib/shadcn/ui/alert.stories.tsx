@@ -5,9 +5,7 @@ const meta: Meta<typeof Alert> = {
   component: Alert,
   title: 'UI/Alert',
   tags: ['autodocs'],
-  argTypes: {
-    variant: { control: 'select', options: ['default', 'destructive', 'informative', 'warning'] },
-  },
+  argTypes: { variant: { control: 'select', options: ['default', 'destructive', 'informative', 'warning'] } },
 };
 
 export default meta;
@@ -22,12 +20,6 @@ export const Default: Story = {
   ),
 };
 
-export const Destructive: Story = {
-  ...Default,
-  args: { variant: 'destructive' },
-};
+export const Destructive: Story = { ...Default, args: { variant: 'destructive' } };
 
-export const Warning: Story = {
-  ...Default,
-  args: { variant: 'warning' },
-};
+export const Warning: Story = { ...Default, args: { variant: 'warning' } };

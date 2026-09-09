@@ -1,12 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './button.js';
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './sheet.js';
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './sheet.js';
 
-const meta: Meta<typeof Sheet> = {
-  component: Sheet,
-  title: 'UI/Sheet',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Sheet> = { component: Sheet, title: 'UI/Sheet', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Sheet>;

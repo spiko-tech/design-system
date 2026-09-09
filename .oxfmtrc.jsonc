@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "printWidth": 120,
+  "trailingComma": "es5",
+  "semi": true,
+  "objectWrap": "collapse",
+  "sortImports": {
+    "newlinesBetween": false,
+    "internalPattern": ["@spiko/**"],
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      "value-internal",
+      ["value-parent", "value-sibling", "value-index"],
+      "side_effect",
+      "unknown",
+    ],
+  },
+  "sortTailwindcss": { "stylesheet": "./src/vendor/ui-utils/styles/global.css", "functions": ["cn", "cva", "clsx"] },
+  "ignorePatterns": ["__generated__", "*.gen.ts", "*.gen.json", "build", "storybook-static"],
+}

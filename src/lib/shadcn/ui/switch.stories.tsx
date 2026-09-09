@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Label } from './label.js';
 import { Switch } from './switch.js';
 
-const meta: Meta<typeof Switch> = {
-  component: Switch,
-  title: 'UI/Switch',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Switch> = { component: Switch, title: 'UI/Switch', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Switch>;

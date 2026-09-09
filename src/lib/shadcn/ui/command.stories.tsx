@@ -1,11 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from './command.js';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from './command.js';
 
-const meta: Meta<typeof Command> = {
-  component: Command,
-  title: 'UI/Command',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Command> = { component: Command, title: 'UI/Command', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Command>;

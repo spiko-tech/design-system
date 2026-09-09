@@ -1,11 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from './sidebar.js';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from './sidebar.js';
 
-const meta: Meta<typeof Sidebar> = {
-  component: Sidebar,
-  title: 'UI/Sidebar',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Sidebar> = { component: Sidebar, title: 'UI/Sidebar', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Sidebar>;

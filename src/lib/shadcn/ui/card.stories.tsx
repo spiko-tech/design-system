@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './button.js';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './card.js';
 
-const meta: Meta<typeof Card> = {
-  component: Card,
-  title: 'UI/Card',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Card> = { component: Card, title: 'UI/Card', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Card>;

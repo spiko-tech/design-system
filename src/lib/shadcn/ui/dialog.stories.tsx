@@ -1,12 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './button.js';
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './dialog.js';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './dialog.js';
 
-const meta: Meta<typeof Dialog> = {
-  component: Dialog,
-  title: 'UI/Dialog',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Dialog> = { component: Dialog, title: 'UI/Dialog', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Dialog>;

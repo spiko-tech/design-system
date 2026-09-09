@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ToggleGroup, ToggleGroupItem } from './toggle-group.js';
 
-const meta: Meta<typeof ToggleGroup> = {
-  component: ToggleGroup,
-  title: 'UI/ToggleGroup',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof ToggleGroup> = { component: ToggleGroup, title: 'UI/ToggleGroup', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof ToggleGroup>;

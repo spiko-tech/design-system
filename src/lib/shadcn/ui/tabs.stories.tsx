@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs.js';
 
-const meta: Meta<typeof Tabs> = {
-  component: Tabs,
-  title: 'UI/Tabs',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Tabs> = { component: Tabs, title: 'UI/Tabs', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Tabs>;

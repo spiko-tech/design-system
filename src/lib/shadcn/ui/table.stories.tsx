@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from './table.js';
 
-const meta: Meta<typeof Table> = {
-  component: Table,
-  title: 'UI/Table',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Table> = { component: Table, title: 'UI/Table', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Table>;

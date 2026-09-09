@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from './combobox.js';
 
-const meta: Meta<typeof Combobox> = {
-  component: Combobox,
-  title: 'UI/Combobox',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Combobox> = { component: Combobox, title: 'UI/Combobox', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Combobox>;

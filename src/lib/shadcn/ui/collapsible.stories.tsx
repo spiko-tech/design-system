@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './button.js';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './collapsible.js';
 
-const meta: Meta<typeof Collapsible> = {
-  component: Collapsible,
-  title: 'UI/Collapsible',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Collapsible> = { component: Collapsible, title: 'UI/Collapsible', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Collapsible>;

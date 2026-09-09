@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from './input-group.js';
 
-const meta: Meta<typeof InputGroup> = {
-  component: InputGroup,
-  title: 'UI/InputGroup',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof InputGroup> = { component: InputGroup, title: 'UI/InputGroup', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof InputGroup>;

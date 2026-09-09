@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Bar, BarChart, XAxis } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from './chart.js';
 
-const meta: Meta<typeof ChartContainer> = {
-  component: ChartContainer,
-  title: 'UI/Chart',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof ChartContainer> = { component: ChartContainer, title: 'UI/Chart', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof ChartContainer>;
@@ -18,9 +14,7 @@ const data = [
   { month: 'April', revenue: 273 },
 ];
 
-const config = {
-  revenue: { label: 'Revenue', color: 'var(--color-primary)' },
-} satisfies ChartConfig;
+const config = { revenue: { label: 'Revenue', color: 'var(--color-primary)' } } satisfies ChartConfig;
 
 export const Default: Story = {
   render: () => (

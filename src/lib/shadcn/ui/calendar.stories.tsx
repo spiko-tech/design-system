@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Calendar } from './calendar.js';
 
-const meta: Meta<typeof Calendar> = {
-  component: Calendar,
-  title: 'UI/Calendar',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof Calendar> = { component: Calendar, title: 'UI/Calendar', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof Calendar>;

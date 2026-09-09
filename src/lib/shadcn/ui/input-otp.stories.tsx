@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from './input-otp.js';
 
-const meta: Meta<typeof InputOTP> = {
-  component: InputOTP,
-  title: 'UI/InputOTP',
-  tags: ['autodocs'],
-};
+const meta: Meta<typeof InputOTP> = { component: InputOTP, title: 'UI/InputOTP', tags: ['autodocs'] };
 
 export default meta;
 type Story = StoryObj<typeof InputOTP>;
