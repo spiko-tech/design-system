@@ -51,6 +51,7 @@
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
     "@vitest/browser-playwright": "latest",
+    "chromatic": "^18.7.2",
     "oxfmt": "^0.53.0",
     "oxlint": "^1.79.0",
     "playwright": "latest",
@@ -59,5 +60,10 @@
     "typescript": "~6.0.2",
     "vite": "^8.2.2",
     "vitest": "latest"
-  }
+  },
+  "engines": {
+    "node": "24.x",
+    "pnpm": "11.x"
+  },
+  "packageManager": "pnpm@11.5.1+sha512.93f7b57422ea7068257235b4c16eb60762eb68e1dc23723199cc739043ea9be2c4143274a399d8c6defa2b1176226d9ca1c4b63482d6200c1a8fbaa78c1d1485"
 }
