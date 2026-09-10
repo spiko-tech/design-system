@@ -5,7 +5,10 @@ const meta: Meta<typeof Input> = {
   component: Input,
   title: 'UI/Input',
   tags: ['autodocs'],
-  argTypes: { type: { control: 'select', options: ['text', 'email', 'password', 'number', 'file'] }, disabled: { control: 'boolean' } },
+  argTypes: {
+    type: { control: 'select', options: ['text', 'email', 'password', 'number', 'file'] },
+    disabled: { control: 'boolean' },
+  },
 };
 
 export default meta;
