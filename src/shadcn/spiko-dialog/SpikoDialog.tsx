@@ -72,12 +72,15 @@ const SpikoDialogContent = ({
         <DialogFooter className="sticky -bottom-6 -mx-4 bg-background px-8 pt-4 pb-6 sm:static sm:bottom-0 sm:mx-0 sm:px-6 sm:py-4">
           {cancelLabel !== undefined && (
             <DialogClose asChild>
-              <Button variant="outline">{cancelLabel}</Button>
+              <Button variant="outline" size="sm">
+                {cancelLabel}
+              </Button>
             </DialogClose>
           )}
           {secondaryAction}
           {submitLabel !== undefined && onSubmit !== undefined && (
             <Button
+              size="sm"
               variant={submitVariant}
               onClick={onSubmit}
               disabled={disableSubmit === true || isSubmitting}

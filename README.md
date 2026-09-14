@@ -38,7 +38,6 @@ In Figma but not in this repo:
 - Drawer
 - Hover Card
 - Menubar
-- Modale (it maps to `spiko-dialog`)
 - Navigation Menu
 - Slider
 - Toast
@@ -51,4 +50,3 @@ In this repo but not in Figma:
 - collapsible
 - input-group
 - label
-- spiko-dialog (it maps to Figma's Modale)
