@@ -1,11 +1,13 @@
 'use client';
 
-import type { DayButtonProps, ChevronProps } from 'react-day-picker';
+import type { ChevronProps, DayButtonProps } from 'react-day-picker';
 import { cn } from '@/utils.js';
-import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from '@radix-ui/react-icons';
+import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import * as React from 'react';
 import { DayPicker, getDefaultClassNames } from 'react-day-picker';
 import { Button, buttonVariants } from '../button/button.js';
+
+type DistributiveOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
 
 const Calendar = ({
   className,
@@ -17,7 +19,9 @@ const Calendar = ({
   formatters,
   components,
   ...props
-}: React.ComponentProps<typeof DayPicker> & { buttonVariant?: React.ComponentProps<typeof Button>['variant'] }) => {
+}: DistributiveOmit<React.ComponentProps<typeof DayPicker>, 'showWeekNumber'> & {
+  buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+}) => {
   const defaultClassNames = getDefaultClassNames();
 
   return (
@@ -42,7 +46,7 @@ const Calendar = ({
         nav: cn('absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1', defaultClassNames.nav),
         button_previous: cn(
           buttonVariants({ variant: buttonVariant }),
-          'size-(--cell-size) p-0 opacity-50 hover:opacity-100 aria-disabled:opacity-50',
+          'size-(--cell-size) p-0 opacity-50 hover:bg-accent hover:opacity-100 aria-disabled:opacity-50',
           defaultClassNames.button_previous
         ),
         button_next: cn(
@@ -77,12 +81,8 @@ const Calendar = ({
           defaultClassNames.weekday
         ),
         week: cn('mt-2 flex w-full', defaultClassNames.week),
-        week_number_header: cn('w-(--cell-size) select-none', defaultClassNames.week_number_header),
-        week_number: cn('text-[0.8rem] text-muted-foreground select-none', defaultClassNames.week_number),
         day: cn(
           'group/day relative aspect-square h-full w-full p-0 text-center select-none [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md',
-          props.showWeekNumber &&
-            '[&:first-child[data-selected=true]_button]:rounded-none [&:nth-child(2)[data-selected=true]_button]:rounded-l-md',
           defaultClassNames.day
         ),
         day_button: cn(
@@ -93,15 +93,15 @@ const Calendar = ({
         range_start: cn('rounded-l-md bg-accent', defaultClassNames.range_start),
         range_middle: cn('rounded-none', defaultClassNames.range_middle),
         range_end: cn('rounded-r-md bg-accent', defaultClassNames.range_end),
-        today: cn(
-          'rounded-md bg-accent text-accent-foreground data-[selected=true]:rounded-none',
-          defaultClassNames.today
+        today: cn('rounded-md bg-accent text-accent-foreground', defaultClassNames.today),
+        outside: cn(
+          'text-text-secondary hover:opacity-50 aria-selected:text-text-secondary',
+          defaultClassNames.outside
         ),
-        outside: cn('text-text-secondary aria-selected:text-text-secondary', defaultClassNames.outside),
         disabled: cn('text-text-secondary opacity-50', defaultClassNames.disabled),
         hidden: cn('invisible', defaultClassNames.hidden),
         selected: cn(
-          'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
+          'rounded-md bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
           defaultClassNames.selected
         ),
         ...classNames,
