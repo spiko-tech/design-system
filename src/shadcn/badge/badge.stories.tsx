@@ -27,7 +27,3 @@ export const Error: Story = { args: { children: 'Error', variant: 'error' } };
 export const Destructive: Story = { args: { children: 'Destructive', variant: 'destructive' } };
 
 export const Success: Story = { args: { children: 'Success', variant: 'success' } };
-
-export const Outline: Story = { args: { children: 'Outline', variant: 'outline' } };
-
-export const Ghost: Story = { args: { children: 'Ghost', variant: 'ghost' } };
