@@ -3,15 +3,15 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 const alertVariants = cva(
-  'relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-lg border px-4 py-3 spiko-text-sm-regular has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current',
+  'relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-lg border px-4 py-3 spiko-text-sm-regular has-[>[data-slot=alert-action]]:pr-12 has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&:has([data-slot=alert-title])>svg]:translate-y-1 [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current',
   {
     variants: {
       variant: {
         default: 'bg-background text-foreground',
         destructive:
-          'text-destructive-foreground *:data-[slot=alert-description]:text-destructive-foreground/80 [&>svg]:text-current',
-        informative:
-          'text-informative-foreground *:data-[slot=alert-description]:text-informative-foreground/80 [&>svg]:text-current',
+          'border-error bg-error-background text-error *:data-[slot=alert-description]:text-error/80 [&>svg]:text-current',
+        information:
+          'border-information bg-information-background text-information *:data-[slot=alert-description]:text-information/80 [&>svg]:text-current',
         warning:
           'bg-informative-background text-warning *:data-[slot=alert-description]:text-warning/80 [&>svg]:text-current',
       },
@@ -47,4 +47,8 @@ const AlertDescription = ({ className, ...props }: React.ComponentProps<'div'>) 
   );
 };
 
-export { Alert, AlertDescription, AlertTitle };
+function AlertAction({ className, ...props }: React.ComponentProps<'div'>) {
+  return <div data-slot="alert-action" className={cn('absolute top-2 right-2', className)} {...props} />;
+}
+
+export { Alert, AlertTitle, AlertDescription, AlertAction };
