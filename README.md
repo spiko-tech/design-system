@@ -47,22 +47,8 @@ In Figma but not in this repo:
 
 In this repo but not in Figma:
 
-- amount-input
-- animated-check
 - circular-progress
 - collapsible
-- copy-to-clipboard
-- currency-input
-- iban-input
 - input-group
 - label
-- markdown
-- paginated-entries
-- password-input
-- phone-input
-- search-input
-- select-country
-- sort-code-input
-- spiko-alert
 - spiko-dialog (it maps to Figma's Modale)
-- status
