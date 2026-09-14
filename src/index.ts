@@ -38,5 +38,4 @@ export * from './shadcn/table/table.js';
 export * from './shadcn/tabs/tabs.js';
 export * from './shadcn/textarea/textarea.js';
 export * from './shadcn/toggle-group/toggle-group.js';
-export * from './shadcn/toggle/toggle.js';
 export * from './shadcn/tooltip/tooltip.js';
