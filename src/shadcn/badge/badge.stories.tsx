@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Icon } from '../../assets/icons/core/Icon.js';
 import { Badge } from './badge.js';
 
 const meta: Meta<typeof Badge> = {
@@ -27,3 +28,15 @@ export const Error: Story = { args: { children: 'Error', variant: 'error' } };
 export const Destructive: Story = { args: { children: 'Destructive', variant: 'destructive' } };
 
 export const Success: Story = { args: { children: 'Success', variant: 'success' } };
+
+export const WithIcon: Story = {
+  args: {
+    children: (
+      <>
+        <Icon.Loader className="animate-spin" />
+        Loading
+      </>
+    ),
+    variant: 'secondary',
+  },
+};
