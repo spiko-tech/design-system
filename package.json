@@ -4,7 +4,9 @@
   "private": true,
   "files": [
     "dist",
-    "src/global.css"
+    "src",
+    ".storybook",
+    "public"
   ],
   "type": "module",
   "sideEffects": false,
@@ -23,7 +25,7 @@
     "typecheck": "tsc -b",
     "lint": "oxlint",
     "format": "oxfmt --write --config=.oxfmtrc.jsonc .",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -80,10 +82,5 @@
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
-  },
-  "engines": {
-    "node": "24.x",
-    "pnpm": "11.x"
-  },
-  "packageManager": "pnpm@11.5.1+sha512.93f7b57422ea7068257235b4c16eb60762eb68e1dc23723199cc739043ea9be2c4143274a399d8c6defa2b1176226d9ca1c4b63482d6200c1a8fbaa78c1d1485"
+  }
 }
