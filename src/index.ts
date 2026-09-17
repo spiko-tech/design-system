@@ -40,3 +40,4 @@ export * from './shadcn/textarea/textarea.js';
 export * from './shadcn/toggle-group/toggle-group.js';
 export * from './shadcn/toggle/toggle.js';
 export * from './shadcn/tooltip/tooltip.js';
+export { cn } from './utils.js';
