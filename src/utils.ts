@@ -1,5 +1,5 @@
-import { clsx, type ClassValue } from 'clsx';
-import { extendTailwindMerge } from 'tailwind-merge';
+import type { CnFunction } from 'cn';
+import { createCn } from 'cn/config';
 
 /*
    `spiko-text-*` and `spiko-heading-*` are custom `@utility` classes (see ./styles/global.css); each one is a full
@@ -14,7 +14,7 @@ import { extendTailwindMerge } from 'tailwind-merge';
    express their own typography with a `spiko-text-*`/`spiko-heading-*` class, never with raw `text-*`/`leading-*`,
    or callers cannot override it.
 */
-const twMerge = extendTailwindMerge<'spiko-heading' | 'spiko-text'>({
+export const cn: CnFunction = createCn({
   extend: {
     classGroups: {
       'spiko-heading': [(className: string) => className.startsWith('spiko-heading-')],
@@ -25,5 +25,3 @@ const twMerge = extendTailwindMerge<'spiko-heading' | 'spiko-text'>({
     },
   },
 });
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
