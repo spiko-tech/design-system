@@ -1,0 +1,23 @@
+import { Label as LabelPrimitive, Slot as SlotPrimitive } from 'radix-ui';
+import { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
+import * as React from 'react';
+declare const Form: <TFieldValues extends FieldValues, TContext = any, TTransformedValues = TFieldValues>(props: import('react-hook-form').FormProviderProps<TFieldValues, TContext, TTransformedValues>) => React.JSX.Element;
+declare const FormField: <TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>, TTransformedValues = TFieldValues>({ ...props }: ControllerProps<TFieldValues, TName, TTransformedValues>) => import("react/jsx-runtime").JSX.Element;
+declare const useFormField: () => {
+    invalid: boolean;
+    isDirty: boolean;
+    isTouched: boolean;
+    isValidating: boolean;
+    error?: import('react-hook-form').FieldError;
+    id: string;
+    name: string;
+    formItemId: string;
+    formDescriptionId: string;
+    formMessageId: string;
+};
+declare const FormItem: ({ className, ...props }: React.ComponentProps<"div">) => import("react/jsx-runtime").JSX.Element;
+declare const FormLabel: ({ className, ...props }: React.ComponentProps<typeof LabelPrimitive.Root>) => import("react/jsx-runtime").JSX.Element;
+declare const FormControl: ({ ...props }: React.ComponentProps<typeof SlotPrimitive.Slot>) => import("react/jsx-runtime").JSX.Element;
+declare const FormDescription: ({ className, ...props }: React.ComponentProps<"p">) => import("react/jsx-runtime").JSX.Element;
+declare const FormMessage: ({ className, ...props }: React.ComponentProps<"p">) => import("react/jsx-runtime").JSX.Element | null;
+export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, useFormField };
