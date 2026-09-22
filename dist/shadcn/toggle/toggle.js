@@ -1,0 +1,34 @@
+"use client";
+import { cn as e } from "../../utils.js";
+import { jsx as t } from "react/jsx-runtime";
+import { cva as n } from "class-variance-authority";
+import { Toggle as r } from "radix-ui";
+import "react";
+//#region src/shadcn/toggle/toggle.tsx
+var i = n("inline-flex items-center justify-center gap-2 rounded-md spiko-text-sm-medium whitespace-nowrap transition-[color,box-shadow] outline-none hover:bg-secondary hover:text-text-secondary focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", {
+	variants: {
+		variant: {
+			default: "bg-transparent",
+			outline: "shadow-xs border border-input bg-transparent hover:bg-accent hover:text-accent-foreground"
+		},
+		size: {
+			default: "h-9 min-w-9 px-2",
+			sm: "h-8 min-w-8 px-1.5",
+			lg: "h-10 min-w-10 px-2.5"
+		}
+	},
+	defaultVariants: {
+		variant: "default",
+		size: "default"
+	}
+}), a = ({ className: n, variant: a, size: o, ...s }) => /* @__PURE__ */ t(r.Root, {
+	"data-slot": "toggle",
+	className: e(i({
+		variant: a,
+		size: o,
+		className: n
+	})),
+	...s
+});
+//#endregion
+export { a as Toggle, i as toggleVariants };
