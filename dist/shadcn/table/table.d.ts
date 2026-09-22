@@ -1,0 +1,10 @@
+import * as React from 'react';
+declare const Table: ({ className, ...props }: React.ComponentProps<"table">) => import("react/jsx-runtime").JSX.Element;
+declare const TableHeader: ({ className, ...props }: React.ComponentProps<"thead">) => import("react/jsx-runtime").JSX.Element;
+declare const TableBody: ({ className, ...props }: React.ComponentProps<"tbody">) => import("react/jsx-runtime").JSX.Element;
+declare const TableFooter: ({ className, ...props }: React.ComponentProps<"tfoot">) => import("react/jsx-runtime").JSX.Element;
+declare const TableRow: ({ className, ...props }: React.ComponentProps<"tr">) => import("react/jsx-runtime").JSX.Element;
+declare const TableHead: ({ className, ...props }: React.ComponentProps<"th">) => import("react/jsx-runtime").JSX.Element;
+declare const TableCell: ({ className, ...props }: React.ComponentProps<"td">) => import("react/jsx-runtime").JSX.Element;
+declare const TableCaption: ({ className, ...props }: React.ComponentProps<"caption">) => import("react/jsx-runtime").JSX.Element;
+export { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow };
