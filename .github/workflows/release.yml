@@ -21,7 +21,7 @@ jobs:
       # releases stay addressable instead of being force-pushed away by the next one.
       - run: |
           echo "RELEASE_DIR=$RUNNER_TEMP/release" >> "$GITHUB_ENV"
-          echo "RELEASE_BRANCH=release-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
+          echo "RELEASE_BRANCH=release-$GITHUB_SHA" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
