@@ -17,7 +17,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "RELEASE_DIR=$RUNNER_TEMP/release" >> "$GITHUB_ENV"
+      # Each release gets its own branch, named after the commit it was built from, so past
+      # releases stay addressable instead of being force-pushed away by the next one.
+      - run: |
+          echo "RELEASE_DIR=$RUNNER_TEMP/release" >> "$GITHUB_ENV"
+          echo "RELEASE_BRANCH=release-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
@@ -59,15 +63,17 @@ jobs:
             fs.writeFileSync(`${process.env.RELEASE_DIR}/package.json`, `${JSON.stringify(pkg, null, 2)}\n`);
           '
 
-      # Committing in a fresh repo keeps `release` a single parentless commit, so the branch
-      # never accumulates history or conflicts in generated files.
+      # Committing in a fresh repo keeps the branch a single parentless commit, so it never
+      # accumulates history or conflicts in generated files. --force only ever rewrites this
+      # commit's own branch, since the name is derived from $GITHUB_SHA.
       - run: |
           cd "$RELEASE_DIR"
-          git init -q -b release
+          git init -q -b "$RELEASE_BRANCH"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -q -m "chore(release): build from $GITHUB_SHA"
-          git push --force "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" release:release
+          git push --force "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" "$RELEASE_BRANCH:$RELEASE_BRANCH"
+          echo "Released to \`$RELEASE_BRANCH\` from \`$GITHUB_SHA\`" >> "$GITHUB_STEP_SUMMARY"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
