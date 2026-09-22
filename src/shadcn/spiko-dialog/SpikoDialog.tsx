@@ -47,6 +47,8 @@ const SpikoDialogContent = ({
   submitVariant,
   contentProps,
   secondaryAction,
+  hideTitle,
+  bodyClassName,
 }: Omit<SpikoDialogProps, 'trigger'>) => {
   const { className: contentClassName, ...restContentProps } = contentProps ?? {};
 
@@ -57,11 +59,18 @@ const SpikoDialogContent = ({
       onOpenAutoFocus={(e) => e.preventDefault()}
       {...restContentProps}
     >
-      <DialogHeader className="px-6 py-4">
-        <DialogTitle className="spiko-gradient-text-black-to-spiko-blue mx-auto w-fit text-center">{title}</DialogTitle>
-      </DialogHeader>
+      {hideTitle === true ? (
+        // Radix requires a title for the accessible name; the caller draws its own.
+        <DialogTitle className="sr-only">{title}</DialogTitle>
+      ) : (
+        <DialogHeader className="px-6 py-4">
+          <DialogTitle className="spiko-gradient-text-black-to-spiko-blue mx-auto w-fit text-center">
+            {title}
+          </DialogTitle>
+        </DialogHeader>
+      )}
 
-      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-4 sm:p-6">
+      <div className={cn('flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-4 sm:p-6', bodyClassName)}>
         {description !== undefined && <DialogDescription>{description}</DialogDescription>}
         {children}
       </div>
@@ -107,6 +116,10 @@ export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariant
   submitVariant?: ButtonProps['variant'];
   contentProps?: Omit<ComponentProps<typeof DialogContent>, 'children'>;
   secondaryAction?: ReactNode;
+  /** Keeps the title as the accessible name only, for dialogs that draw their own heading. */
+  hideTitle?: boolean;
+  /** Overrides the default body padding and gap, e.g. for content that bleeds to the edges. */
+  bodyClassName?: string;
   children: ReactNode;
 }
 
