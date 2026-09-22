@@ -1,0 +1,15 @@
+import { Select as SelectPrimitive } from 'radix-ui';
+import * as React from 'react';
+declare const Select: ({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectGroup: ({ ...props }: React.ComponentProps<typeof SelectPrimitive.Group>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectValue: ({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Value>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectTrigger: ({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Trigger>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectTriggerSkeleton: ({ className, children }: React.ComponentProps<typeof SelectPrimitive.Trigger>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectContent: ({ className, children, position, ...props }: React.ComponentProps<typeof SelectPrimitive.Content>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectLabel: ({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectItem: ({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectItemSimple: ({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectSeparator: ({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Separator>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectScrollUpButton: ({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) => import("react/jsx-runtime").JSX.Element;
+declare const SelectScrollDownButton: ({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) => import("react/jsx-runtime").JSX.Element;
+export { Select, SelectContent, SelectGroup, SelectItem, SelectItemSimple, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectTriggerSkeleton, SelectValue, };
