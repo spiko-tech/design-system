@@ -19,7 +19,6 @@
   },
   "scripts": {
     "build": "vite build -c vite.lib.config.ts",
-    "prepare": "pnpm build",
     "typecheck": "tsc -b",
     "lint": "oxlint",
     "format": "oxfmt --write --config=.oxfmtrc.jsonc .",
