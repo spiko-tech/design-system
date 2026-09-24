@@ -2,6 +2,8 @@ import type { ComponentProps, ReactNode } from 'react';
 import { Icon } from '@/assets/icons/core/Icon.js';
 import { cn } from '@/utils.js';
 import { cva, VariantProps } from 'class-variance-authority';
+import { motion, useReducedMotion } from 'motion/react';
+import { useCallback, useState } from 'react';
 import { Button, type ButtonProps } from '../button/button.js';
 import {
   Dialog,
@@ -34,6 +36,40 @@ const spikoDialogVariants = cva(
   }
 );
 
+const HEIGHT_TRANSITION = { duration: 0.2, ease: 'easeOut' } as const;
+
+const useMeasuredHeight = () => {
+  const [height, setHeight] = useState<number | 'auto'>('auto');
+  const measure = useCallback((node: HTMLDivElement | null) => {
+    if (!node) return;
+    const observer = new ResizeObserver(() => setHeight(node.offsetHeight));
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+  return { height, measure };
+};
+
+const AnimatedHeightBody = ({ children }: { children: ReactNode }) => {
+  const { height, measure } = useMeasuredHeight();
+  const [isResizing, setIsResizing] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className={cn('min-h-0', isResizing ? 'overflow-clip' : 'overflow-y-auto')}
+      initial={false}
+      animate={{ height }}
+      transition={prefersReducedMotion ? { duration: 0 } : HEIGHT_TRANSITION}
+      onAnimationStart={() => setIsResizing(true)}
+      onAnimationComplete={() => setIsResizing(false)}
+    >
+      <div ref={measure} className="flex flex-col gap-6 p-4 sm:p-6">
+        {children}
+      </div>
+    </motion.div>
+  );
+};
+
 const SpikoDialogContent = ({
   title,
   description,
@@ -41,14 +77,23 @@ const SpikoDialogContent = ({
   submitLabel,
   cancelLabel,
   onSubmit,
+  submitFormId,
   size,
   isSubmitting,
   disableSubmit,
   submitVariant,
   contentProps,
   secondaryAction,
+  animateHeight,
 }: Omit<SpikoDialogProps, 'trigger'>) => {
   const { className: contentClassName, ...restContentProps } = contentProps ?? {};
+  const hasSubmitButton = submitLabel !== undefined && (onSubmit !== undefined || submitFormId !== undefined);
+  const body = (
+    <>
+      {description !== undefined && <DialogDescription>{description}</DialogDescription>}
+      {children}
+    </>
+  );
 
   return (
     <DialogContent
@@ -61,14 +106,13 @@ const SpikoDialogContent = ({
         <DialogTitle className="spiko-gradient-text-black-to-spiko-blue mx-auto w-fit text-center">{title}</DialogTitle>
       </DialogHeader>
 
-      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-4 sm:p-6">
-        {description !== undefined && <DialogDescription>{description}</DialogDescription>}
-        {children}
-      </div>
+      {animateHeight === true ? (
+        <AnimatedHeightBody>{body}</AnimatedHeightBody>
+      ) : (
+        <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-4 sm:p-6">{body}</div>
+      )}
 
-      {(cancelLabel !== undefined ||
-        secondaryAction !== undefined ||
-        (submitLabel !== undefined && onSubmit !== undefined)) && (
+      {(cancelLabel !== undefined || secondaryAction !== undefined || hasSubmitButton) && (
         <DialogFooter className="sticky -bottom-6 -mx-4 bg-background px-8 pt-4 pb-6 sm:static sm:bottom-0 sm:mx-0 sm:px-6 sm:py-4">
           {cancelLabel !== undefined && (
             <DialogClose asChild>
@@ -78,10 +122,12 @@ const SpikoDialogContent = ({
             </DialogClose>
           )}
           {secondaryAction}
-          {submitLabel !== undefined && onSubmit !== undefined && (
+          {hasSubmitButton && (
             <Button
               size="sm"
               variant={submitVariant}
+              type={submitFormId === undefined ? 'button' : 'submit'}
+              form={submitFormId}
               onClick={onSubmit}
               disabled={disableSubmit === true || isSubmitting}
               className="min-w-24"
@@ -102,11 +148,13 @@ export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariant
   submitLabel?: string;
   cancelLabel?: string;
   onSubmit?: () => void;
+  submitFormId?: string;
   disableSubmit?: boolean;
   isSubmitting?: boolean;
   submitVariant?: ButtonProps['variant'];
   contentProps?: Omit<ComponentProps<typeof DialogContent>, 'children'>;
   secondaryAction?: ReactNode;
+  animateHeight?: boolean;
   children: ReactNode;
 }
 
