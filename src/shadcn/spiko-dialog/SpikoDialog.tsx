@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from '../dialog/dialog.js';
 
-const spikoDialogVariants = cva(
+export const spikoDialogVariants = cva(
   cn(
     // Mobile bottom-sheet: full width, anchored to bottom, slides up.
     // Desktop keeps the default centered dialog behavior from shadcn.
