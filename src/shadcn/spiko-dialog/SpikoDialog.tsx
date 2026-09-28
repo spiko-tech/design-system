@@ -145,9 +145,7 @@ const SpikoDialogContent = ({
             <Button
               size="sm"
               variant={submit.variant}
-              type={submit.form === undefined ? 'button' : 'submit'}
-              form={submit.form}
-              onClick={submit.onClick}
+              {...getSubmitButtonTargetProps(submit.target)}
               disabled={submit.disabled === true || submit.isSubmitting}
               className="min-w-24"
             >
@@ -160,19 +158,31 @@ const SpikoDialogContent = ({
   );
 };
 
-type SpikoDialogSubmitTarget = { onClick: () => void; form?: never } | { form: string; onClick?: never };
+type SpikoDialogSubmitTarget =
+  /** The button runs `onClick`. */
+  | { type: 'default'; onClick: () => void }
+  /** The button submits the form with id `formId` rendered in the dialog body, so the form runs its own `onSubmit` and validation. */
+  | { type: 'inner-form'; formId: string };
 
-export type SpikoDialogSubmit = SpikoDialogSubmitTarget & {
+/** The footer submit button. It is rendered only when `submit` is passed to the dialog. */
+export type SpikoDialogSubmit = {
   label: string;
   variant?: ButtonProps['variant'];
   isSubmitting?: boolean;
   disabled?: boolean;
+  target: SpikoDialogSubmitTarget;
 };
+
+const getSubmitButtonTargetProps = (target: SpikoDialogSubmitTarget) =>
+  target.type === 'inner-form'
+    ? ({ type: 'submit', form: target.formId } as const)
+    : ({ type: 'button', onClick: target.onClick } as const);
 
 export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariants> {
   title: string;
   description?: string;
   trigger: ReactNode;
+  /** The footer submit button, rendered only when set. See {@link SpikoDialogSubmit}. */
   submit?: SpikoDialogSubmit;
   cancelLabel?: string;
   contentProps?: Omit<ComponentProps<typeof DialogContent>, 'children'>;
