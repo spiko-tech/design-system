@@ -12,15 +12,13 @@ const meta: Meta<typeof SpikoDialog> = {
     size: { control: 'select', options: ['xs', 'sm', 'md', 'lg'] },
     trigger: { table: { disable: true } },
     description: { table: { disable: true } },
-    onSubmit: { table: { disable: true } },
-    submitVariant: { table: { disable: true } },
     contentProps: { table: { disable: true } },
     secondaryAction: { table: { disable: true } },
     steps: { table: { disable: true } },
-    formToSubmit: {
+    submit: {
       control: false,
       description:
-        'Id of a form rendered in the dialog body. The footer submit button submits that form, so its own `onSubmit` and validation run, and `onSubmit` is not needed.',
+        'The footer submit button, shown only when this is set. Give it exactly one of `onClick`, or `form`: the id of a form rendered in the dialog body, which the button then submits so the form runs its own `onSubmit` and validation.',
     },
     children: { table: { disable: true } },
   },
@@ -28,8 +26,7 @@ const meta: Meta<typeof SpikoDialog> = {
     title: 'Heading Title',
     trigger: <Button>Open dialog</Button>,
     cancelLabel: 'Cancel',
-    submitLabel: 'Submit',
-    onSubmit: () => {},
+    submit: { label: 'Submit', onClick: () => {} },
     children: <div className="h-64 rounded-md border border-dashed border-information bg-information-background" />,
   },
 };
@@ -83,8 +80,7 @@ const FORM_ID = 'spiko-dialog-story-form';
 export const SubmitsAForm: Story = {
   args: {
     size: 'xs',
-    onSubmit: undefined,
-    formToSubmit: FORM_ID,
+    submit: { label: 'Submit', form: FORM_ID },
     children: (
       <form id={FORM_ID} onSubmit={(event) => event.preventDefault()}>
         <Input placeholder="Press Submit in the footer" required />

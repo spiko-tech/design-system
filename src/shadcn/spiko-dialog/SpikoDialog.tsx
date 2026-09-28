@@ -74,21 +74,15 @@ const SpikoDialogContent = ({
   title,
   description,
   children,
-  submitLabel,
+  submit,
   cancelLabel,
-  onSubmit,
-  formToSubmit,
   size,
-  isSubmitting,
-  disableSubmit,
-  submitVariant,
   contentProps,
   secondaryAction,
   steps,
   animateHeight,
 }: Omit<SpikoDialogProps, 'trigger'>) => {
   const { className: contentClassName, ...restContentProps } = contentProps ?? {};
-  const hasSubmitButton = submitLabel !== undefined && (onSubmit !== undefined || formToSubmit !== undefined);
   const body = (
     <>
       {description !== undefined && <DialogDescription>{description}</DialogDescription>}
@@ -113,7 +107,7 @@ const SpikoDialogContent = ({
         <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-4 sm:p-6">{body}</div>
       )}
 
-      {(cancelLabel !== undefined || secondaryAction !== undefined || hasSubmitButton || steps !== undefined) && (
+      {(cancelLabel !== undefined || secondaryAction !== undefined || submit !== undefined || steps !== undefined) && (
         <DialogFooter className="sticky -bottom-6 -mx-4 bg-background px-8 pt-4 pb-6 sm:static sm:bottom-0 sm:mx-0 sm:px-6 sm:py-4">
           {steps !== undefined && (
             <div className="order-last flex justify-between sm:order-none sm:mr-auto sm:gap-4">
@@ -147,17 +141,17 @@ const SpikoDialogContent = ({
             </DialogClose>
           )}
           {secondaryAction}
-          {hasSubmitButton && (
+          {submit !== undefined && (
             <Button
               size="sm"
-              variant={submitVariant}
-              type={formToSubmit === undefined ? 'button' : 'submit'}
-              form={formToSubmit}
-              onClick={onSubmit}
-              disabled={disableSubmit === true || isSubmitting}
+              variant={submit.variant}
+              type={submit.form === undefined ? 'button' : 'submit'}
+              form={submit.form}
+              onClick={submit.onClick}
+              disabled={submit.disabled === true || submit.isSubmitting}
               className="min-w-24"
             >
-              {isSubmitting ? <Icon.Loader className="animate-spin" /> : submitLabel}
+              {submit.isSubmitting ? <Icon.Loader className="animate-spin" /> : submit.label}
             </Button>
           )}
         </DialogFooter>
@@ -166,17 +160,21 @@ const SpikoDialogContent = ({
   );
 };
 
+type SpikoDialogSubmitTarget = { onClick: () => void; form?: never } | { form: string; onClick?: never };
+
+export type SpikoDialogSubmit = SpikoDialogSubmitTarget & {
+  label: string;
+  variant?: ButtonProps['variant'];
+  isSubmitting?: boolean;
+  disabled?: boolean;
+};
+
 export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariants> {
   title: string;
   description?: string;
   trigger: ReactNode;
-  submitLabel?: string;
+  submit?: SpikoDialogSubmit;
   cancelLabel?: string;
-  onSubmit?: () => void;
-  formToSubmit?: string;
-  disableSubmit?: boolean;
-  isSubmitting?: boolean;
-  submitVariant?: ButtonProps['variant'];
   contentProps?: Omit<ComponentProps<typeof DialogContent>, 'children'>;
   secondaryAction?: ReactNode;
   steps?: { onPrevious: () => void; onNext: () => void; disablePrevious?: boolean; disableNext?: boolean };
