@@ -17,7 +17,11 @@ const meta: Meta<typeof SpikoDialog> = {
     contentProps: { table: { disable: true } },
     secondaryAction: { table: { disable: true } },
     steps: { table: { disable: true } },
-    submitFormId: { table: { disable: true } },
+    formToSubmit: {
+      control: false,
+      description:
+        'Id of a form rendered in the dialog body. The footer submit button submits that form, so its own `onSubmit` and validation run, and `onSubmit` is not needed.',
+    },
     children: { table: { disable: true } },
   },
   args: {
@@ -80,7 +84,7 @@ export const SubmitsAForm: Story = {
   args: {
     size: 'xs',
     onSubmit: undefined,
-    submitFormId: FORM_ID,
+    formToSubmit: FORM_ID,
     children: (
       <form id={FORM_ID} onSubmit={(event) => event.preventDefault()}>
         <Input placeholder="Press Submit in the footer" required />

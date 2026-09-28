@@ -77,7 +77,7 @@ const SpikoDialogContent = ({
   submitLabel,
   cancelLabel,
   onSubmit,
-  submitFormId,
+  formToSubmit,
   size,
   isSubmitting,
   disableSubmit,
@@ -88,7 +88,7 @@ const SpikoDialogContent = ({
   animateHeight,
 }: Omit<SpikoDialogProps, 'trigger'>) => {
   const { className: contentClassName, ...restContentProps } = contentProps ?? {};
-  const hasSubmitButton = submitLabel !== undefined && (onSubmit !== undefined || submitFormId !== undefined);
+  const hasSubmitButton = submitLabel !== undefined && (onSubmit !== undefined || formToSubmit !== undefined);
   const body = (
     <>
       {description !== undefined && <DialogDescription>{description}</DialogDescription>}
@@ -151,8 +151,8 @@ const SpikoDialogContent = ({
             <Button
               size="sm"
               variant={submitVariant}
-              type={submitFormId === undefined ? 'button' : 'submit'}
-              form={submitFormId}
+              type={formToSubmit === undefined ? 'button' : 'submit'}
+              form={formToSubmit}
               onClick={onSubmit}
               disabled={disableSubmit === true || isSubmitting}
               className="min-w-24"
@@ -173,7 +173,7 @@ export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariant
   submitLabel?: string;
   cancelLabel?: string;
   onSubmit?: () => void;
-  submitFormId?: string;
+  formToSubmit?: string;
   disableSubmit?: boolean;
   isSubmitting?: boolean;
   submitVariant?: ButtonProps['variant'];
