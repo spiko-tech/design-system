@@ -21,3 +21,7 @@ export const Default: Story = {
     </div>
   ),
 };
+
+export const Checked: Story = { args: { defaultChecked: true } };
+
+export const Disabled: Story = { args: { disabled: true } };
