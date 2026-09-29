@@ -47,6 +47,7 @@ const SpikoDialogContent = ({
   submitVariant,
   contentProps,
   secondaryAction,
+  arrows,
 }: Omit<SpikoDialogProps, 'trigger'>) => {
   const { className: contentClassName, ...restContentProps } = contentProps ?? {};
 
@@ -68,8 +69,33 @@ const SpikoDialogContent = ({
 
       {(cancelLabel !== undefined ||
         secondaryAction !== undefined ||
-        (submitLabel !== undefined && onSubmit !== undefined)) && (
+        (submitLabel !== undefined && onSubmit !== undefined) ||
+        arrows !== undefined) && (
         <DialogFooter className="sticky -bottom-6 -mx-4 bg-background px-8 pt-4 pb-6 sm:static sm:bottom-0 sm:mx-0 sm:px-6 sm:py-4">
+          {arrows !== undefined && (
+            <div className="order-last flex justify-between sm:order-none sm:mr-auto sm:gap-4">
+              <Button
+                variant="outline"
+                size="icon"
+                className="size-10"
+                aria-label="Previous"
+                onClick={arrows.onPrevious}
+                disabled={arrows.disablePrevious}
+              >
+                <Icon.ArrowLeft />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="size-10"
+                aria-label="Next"
+                onClick={arrows.onNext}
+                disabled={arrows.disableNext}
+              >
+                <Icon.ArrowRight />
+              </Button>
+            </div>
+          )}
           {cancelLabel !== undefined && (
             <DialogClose asChild>
               <Button variant="outline" size="sm">
@@ -107,6 +133,7 @@ export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariant
   submitVariant?: ButtonProps['variant'];
   contentProps?: Omit<ComponentProps<typeof DialogContent>, 'children'>;
   secondaryAction?: ReactNode;
+  arrows?: { onPrevious: () => void; onNext: () => void; disablePrevious?: boolean; disableNext?: boolean };
   children: ReactNode;
 }
 

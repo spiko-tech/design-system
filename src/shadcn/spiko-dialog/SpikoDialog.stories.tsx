@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
 import { Button } from '../button/button.js';
-import { SpikoDialog } from './SpikoDialog.js';
+import { SpikoDialog, type SpikoDialogProps } from './SpikoDialog.js';
 
 const meta: Meta<typeof SpikoDialog> = {
   component: SpikoDialog,
@@ -14,6 +15,7 @@ const meta: Meta<typeof SpikoDialog> = {
     submitVariant: { table: { disable: true } },
     contentProps: { table: { disable: true } },
     secondaryAction: { table: { disable: true } },
+    arrows: { table: { disable: true } },
     children: { table: { disable: true } },
   },
   args: {
@@ -30,3 +32,24 @@ export default meta;
 type Story = StoryObj<typeof SpikoDialog>;
 
 export const Default: Story = { args: { size: 'sm' } };
+
+const STEP_COUNT = 3;
+
+const SpikoDialogWithArrows = (props: SpikoDialogProps) => {
+  const [step, setStep] = useState(0);
+  return (
+    <SpikoDialog
+      {...props}
+      arrows={{
+        onPrevious: () => setStep((current) => current - 1),
+        onNext: () => setStep((current) => current + 1),
+        disablePrevious: step === 0,
+        disableNext: step === STEP_COUNT - 1,
+      }}
+    >
+      Step {step + 1} of {STEP_COUNT}
+    </SpikoDialog>
+  );
+};
+
+export const WithArrows: Story = { render: (args) => <SpikoDialogWithArrows {...args} /> };
