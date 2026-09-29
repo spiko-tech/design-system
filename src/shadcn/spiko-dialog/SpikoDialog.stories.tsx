@@ -15,7 +15,7 @@ const meta: Meta<typeof SpikoDialog> = {
     submitVariant: { table: { disable: true } },
     contentProps: { table: { disable: true } },
     secondaryAction: { table: { disable: true } },
-    arrows: { table: { disable: true } },
+    steps: { table: { disable: true } },
     children: { table: { disable: true } },
   },
   args: {
@@ -40,7 +40,7 @@ const SpikoDialogWithArrows = (props: SpikoDialogProps) => {
   return (
     <SpikoDialog
       {...props}
-      arrows={{
+      steps={{
         onPrevious: () => setStep((current) => current - 1),
         onNext: () => setStep((current) => current + 1),
         disablePrevious: step === 0,
