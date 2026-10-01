@@ -1,52 +1,41 @@
-# design-system
+# @spiko-tech/design-system
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Spiko's design system: React components, icons, logos and theme tokens, built on shadcn/ui, Base UI, Radix and Tailwind CSS v4.
 
-Currently, two official plugins are available:
+## Install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Each push to `main` publishes a build to its own `release-<commit-sha>` branch. Install it from there:
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": { "typeAware": true },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+pnpm add github:spiko-tech/design-system#release-<commit-sha>
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Import the global stylesheet once, then use the components:
 
-## Missing components
+```tsx
+import '@spiko-tech/design-system/global.css';
+import { Button } from '@spiko-tech/design-system';
+```
 
-In Figma but not in this repo:
+## Contents
 
-- 2FA
-- Alert Dialog
-- Aspect Ratio
-- Breadcrumb
-- Context Menu
-- Data Table
-- Drawer
-- Hover Card
-- Menubar
-- Navigation Menu
-- Slider
-- Toast
+Components (`src/shadcn`): Accordion, Alert, Badge, Button, Calendar, Checkbox, DatePicker, DropdownMenu, Input, Label, Pagination, Progress, RadioGroup, Separator, Sidebar, Skeleton, SpikoDialog, Switch, Tabs, Tooltip.
 
-## Extra components
+Assets (`src/assets`): core icons, flags, bank and partner logos, Spiko logo.
 
-In this repo but not in Figma:
+Utilities: `cn`, `useIsMobile`.
 
-- circular-progress
-- collapsible
-- input-group
-- label
+Popover and Dialog live in `src/shadcn` because other components depend on them. They are internal: they have no story and are not exported.
+
+## Development
+
+```sh
+pnpm install
+pnpm storybook   # http://localhost:6006
+pnpm build       # library build to dist/
+pnpm typecheck
+pnpm lint
+pnpm format
+```
+
+New components go in `src/shadcn/<name>/`, with a story, and get exported from `src/index.ts`.
