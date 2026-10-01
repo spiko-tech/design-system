@@ -27,12 +27,12 @@ export const DatePicker = ({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant={'outline'} className="spiko-text-sm-regular" disabled={disabled}>
+        <Button variant="outline" className="spiko-text-sm-regular font-normal" disabled={disabled} size="sm">
+          <Icon.Calendar className="ml-auto size-4" />
           {date ? formatDate(date) : <span>{placeholder}</span>}
-          <Icon.Calendar className="ml-auto size-4 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="start">
+      <PopoverContent align="start" className="w-fit p-0">
         <Calendar
           mode="single"
           selected={date}
