@@ -20,6 +20,21 @@ const tabsListVariants = cva('inline-flex items-center justify-center text-text-
   defaultVariants: { variant: 'default' },
 });
 
+const tabsTriggerVariants = cva(
+  "inline-flex items-center justify-center gap-1.5 transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default:
+          'data-[state=active]:shadow-sm flex-1 rounded-md px-3 py-1 spiko-text-sm-semibold whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground',
+        underline:
+          'min-w-0 flex-1 basis-0 rounded-none border-b-2 border-transparent px-1 py-2 text-center spiko-text-base-semibold whitespace-normal text-text data-[state=active]:text-information data-[state=inactive]:hover:border-border data-[state=inactive]:hover:text-information max-sm:spiko-text-xs-semibold sm:px-2 lg:flex-none lg:px-3 lg:whitespace-nowrap',
+      },
+    },
+    defaultVariants: { variant: 'default' },
+  }
+);
+
 const useUnderlineIndicator = (enabled: boolean) => {
   const listRef = React.useRef<HTMLDivElement>(null);
   const indicatorRef = React.useRef<HTMLSpanElement>(null);
@@ -107,21 +122,6 @@ const TabsList = ({
     </TabsPrimitive.List>
   );
 };
-
-const tabsTriggerVariants = cva(
-  "inline-flex items-center justify-center gap-1.5 transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-  {
-    variants: {
-      variant: {
-        default:
-          'data-[state=active]:shadow-sm flex-1 rounded-md px-2 py-1 spiko-text-sm-semibold whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground',
-        underline:
-          'min-w-0 flex-1 basis-0 rounded-none border-b-2 border-transparent px-1 py-2 text-center spiko-text-base-semibold whitespace-normal text-text data-[state=active]:text-information data-[state=inactive]:hover:border-border data-[state=inactive]:hover:text-information max-sm:spiko-text-xs-semibold sm:px-2 lg:flex-none lg:px-3 lg:whitespace-nowrap',
-      },
-    },
-    defaultVariants: { variant: 'default' },
-  }
-);
 
 const TabsTrigger = ({
   className,
