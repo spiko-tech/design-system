@@ -4,6 +4,7 @@ import { Icon } from '@/assets/icons/core/Icon.js';
 import { cn } from '@/utils.js';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { Label } from '../label/label.js';
 
 const RadioGroup = ({ className, ...props }: React.ComponentProps<typeof RadioGroupPrimitive.Root>) => (
   <RadioGroupPrimitive.Root data-slot="radio-group" className={cn('grid gap-3', className)} {...props} />
@@ -27,4 +28,25 @@ const RadioGroupItem = ({ className, ...props }: React.ComponentProps<typeof Rad
   </RadioGroupPrimitive.Item>
 );
 
-export { RadioGroup, RadioGroupItem };
+type RadioGroupCardProps = React.ComponentProps<typeof RadioGroupPrimitive.Item> & {
+  label: React.ReactNode;
+  description?: React.ReactNode;
+};
+
+const RadioGroupCard = ({ label, description, className, ...props }: RadioGroupCardProps) => (
+  <Label
+    data-slot="radio-group-card"
+    className={cn(
+      'flex items-center gap-4 rounded-[6px] border p-3 spiko-text-sm-regular has-data-[state=checked]:border-border-accent',
+      className
+    )}
+  >
+    <RadioGroupItem {...props} />
+    <div className="flex flex-col gap-1.5 leading-5">
+      <span>{label}</span>
+      {description && <p className="text-text-secondary">{description}</p>}
+    </div>
+  </Label>
+);
+
+export { RadioGroup, RadioGroupCard, RadioGroupItem };

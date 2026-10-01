@@ -177,6 +177,7 @@
   /* Shadcn Colors */
 
   --color-border: var(--border);
+  --color-border-accent: var(--border-accent);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
