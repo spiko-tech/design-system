@@ -41,10 +41,11 @@ jobs:
               exit 1
             fi
           done
+          expected=$(find src -type f \( -name '*.ts' -o -name '*.tsx' \) ! -name '*.stories.tsx' ! -name '*.d.ts' | wc -l | tr -d '[:space:]')
           count=$(find dist -type f -name '*.d.ts' | wc -l | tr -d '[:space:]')
-          echo "emitted $count .d.ts files under dist/"
-          if [ "$count" -lt 50 ]; then
-            echo "::error::only $count .d.ts files emitted (a full build produces ~66), declaration emit is partial"
+          echo "emitted $count of $expected .d.ts files under dist/"
+          if [ "$count" -lt "$expected" ]; then
+            echo "::error::only $count of $expected .d.ts files emitted, declaration emit is partial"
             exit 1
           fi
 
