@@ -15,7 +15,7 @@ const Calendar = ({
   showOutsideDays = true,
   fixedWeeks = true,
   captionLayout = 'label',
-  buttonVariant = 'ghost',
+  buttonVariant = 'outline',
   formatters,
   components,
   ...props
@@ -45,13 +45,13 @@ const Calendar = ({
         month: cn('flex w-full flex-col gap-4', defaultClassNames.month),
         nav: cn('absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1', defaultClassNames.nav),
         button_previous: cn(
-          buttonVariants({ variant: buttonVariant }),
-          'size-(--cell-size) p-0 opacity-50 hover:bg-accent hover:opacity-100 aria-disabled:opacity-50',
+          buttonVariants({ variant: buttonVariant, size: 'icon' }),
+          'size-7 p-0 opacity-50 hover:bg-accent hover:opacity-100 aria-disabled:opacity-50',
           defaultClassNames.button_previous
         ),
         button_next: cn(
-          buttonVariants({ variant: buttonVariant }),
-          'size-(--cell-size) p-0 opacity-50 hover:opacity-100 aria-disabled:opacity-50',
+          buttonVariants({ variant: buttonVariant, size: 'icon' }),
+          'size-7 p-0 opacity-50 hover:opacity-100 aria-disabled:opacity-50',
           defaultClassNames.button_next
         ),
         month_caption: cn(
