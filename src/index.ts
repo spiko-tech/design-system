@@ -31,6 +31,7 @@ export * from './shadcn/date-picker/DatePicker.js';
 export * from './shadcn/dropdown-menu/dropdown-menu.js';
 export * from './shadcn/form/form.js';
 export * from './shadcn/hooks/use-mobile.js';
+export * from './shadcn/input-otp/input-otp.js';
 export * from './shadcn/input/input.js';
 export * from './shadcn/label/label.js';
 export * from './shadcn/pagination/pagination.js';
