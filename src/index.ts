@@ -38,6 +38,7 @@ export * from './shadcn/progress/progress.js';
 export * from './shadcn/radio-group/radio-group.js';
 export * from './shadcn/separator/separator.js';
 export * from './shadcn/skeleton/skeleton.js';
+export * from './shadcn/sonner/sonner.js';
 export * from './shadcn/spiko-dialog/SpikoDialog.js';
 export * from './shadcn/switch/switch.js';
 export * from './shadcn/tabs/tabs.js';
