@@ -5,10 +5,13 @@ import type { DateRange } from 'react-day-picker';
 import * as React from 'react';
 import { Calendar } from '../calendar/calendar.js';
 
+const DEFAULT_DATE = new Date(2026, 9, 1);
+
 const meta: Meta<typeof Calendar> = {
   component: Calendar,
   title: 'UI/Calendar',
   tags: ['autodocs'],
+  args: { today: DEFAULT_DATE, defaultMonth: DEFAULT_DATE },
   argTypes: {
     captionLayout: { control: 'select', options: ['label', 'dropdown', 'dropdown-months', 'dropdown-years'] },
     showOutsideDays: { control: 'boolean' },
@@ -20,7 +23,7 @@ type Story = StoryObj<typeof Calendar>;
 
 export const Default: Story = {
   render: (args) => {
-    const [selected, setSelected] = React.useState<Date | undefined>(new Date());
+    const [selected, setSelected] = React.useState<Date | undefined>(DEFAULT_DATE);
     return <Calendar {...args} mode="single" selected={selected} onSelect={setSelected} />;
   },
 };
