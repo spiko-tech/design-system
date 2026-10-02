@@ -13,9 +13,9 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 export const Default: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex items-center gap-2">
-      <Checkbox id="terms-checkbox" name="terms-checkbox" />
+      <Checkbox id="terms-checkbox" name="terms-checkbox" {...args} />
       <Label htmlFor="terms-checkbox" className="leading-4">
         Accept terms and conditions
       </Label>
@@ -24,9 +24,10 @@ export const Default: Story = {
 };
 
 export const WithDescription: Story = {
-  render: () => (
+  args: { defaultChecked: true },
+  render: (args) => (
     <div className="flex gap-2">
-      <Checkbox id="terms-checkbox-2" name="terms-checkbox-2" defaultChecked />
+      <Checkbox id="terms-checkbox-2" name="terms-checkbox-2" {...args} />
       <div className="flex flex-col gap-1">
         <Label htmlFor="terms-checkbox-2" className="leading-4">
           Accept terms and conditions
@@ -40,9 +41,10 @@ export const WithDescription: Story = {
 };
 
 export const Disabled: Story = {
-  render: () => (
+  args: { disabled: true },
+  render: (args) => (
     <div className="flex items-center gap-2">
-      <Checkbox id="toggle-checkbox" name="toggle-checkbox" disabled />
+      <Checkbox id="toggle-checkbox" name="toggle-checkbox" {...args} />
       <Label htmlFor="toggle-checkbox" className="leading-4">
         Enable notifications
       </Label>
@@ -51,9 +53,9 @@ export const Disabled: Story = {
 };
 
 export const WrappedInLabel: Story = {
-  render: () => (
+  render: (args) => (
     <Label className="flex items-start gap-2">
-      <Checkbox id="toggle-checkbox-2" name="toggle-checkbox-2" />
+      <Checkbox id="toggle-checkbox-2" name="toggle-checkbox-2" {...args} />
       <div className="flex flex-col gap-1">
         <span className="leading-4">Enable notifications</span>
         <p className="spiko-text-sm-regular text-muted-foreground">
