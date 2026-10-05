@@ -83,6 +83,7 @@ const SpikoDialogContent = ({
   animateHeight,
 }: Omit<SpikoDialogProps, 'trigger'>) => {
   const { className: contentClassName, ...restContentProps } = contentProps ?? {};
+  const hasArrows = steps?.onPrevious !== undefined || steps?.onNext !== undefined;
   const body = (
     <>
       {description !== undefined && <DialogDescription>{description}</DialogDescription>}
@@ -107,30 +108,39 @@ const SpikoDialogContent = ({
         <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-4 sm:p-6">{body}</div>
       )}
 
-      {(cancelLabel !== undefined || secondaryAction !== undefined || submit !== undefined || steps !== undefined) && (
+      {(cancelLabel !== undefined || secondaryAction !== undefined || submit !== undefined || hasArrows) && (
         <DialogFooter className="sticky -bottom-6 -mx-4 bg-background px-8 pt-4 pb-6 sm:static sm:bottom-0 sm:mx-0 sm:px-6 sm:py-4">
-          {steps !== undefined && (
-            <div className="order-last flex justify-between sm:order-none sm:mr-auto sm:gap-4">
-              <Button
-                variant="outline"
-                size="icon"
-                className="size-10"
-                aria-label="Previous"
-                onClick={steps.onPrevious}
-                disabled={steps.disablePrevious}
-              >
-                <Icon.ArrowLeft />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="size-10"
-                aria-label="Next"
-                onClick={steps.onNext}
-                disabled={steps.disableNext}
-              >
-                <Icon.ArrowRight />
-              </Button>
+          {hasArrows && (
+            <div
+              className={cn(
+                'order-last flex sm:order-none sm:mr-auto sm:gap-4',
+                steps?.onPrevious === undefined ? 'justify-end' : 'justify-between'
+              )}
+            >
+              {steps?.onPrevious !== undefined && (
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="size-10"
+                  aria-label="Previous"
+                  onClick={steps.onPrevious}
+                  disabled={steps.disablePrevious}
+                >
+                  <Icon.ArrowLeft />
+                </Button>
+              )}
+              {steps?.onNext !== undefined && (
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="size-10"
+                  aria-label="Next"
+                  onClick={steps.onNext}
+                  disabled={steps.disableNext}
+                >
+                  <Icon.ArrowRight />
+                </Button>
+              )}
             </div>
           )}
           {cancelLabel !== undefined && (
@@ -184,7 +194,8 @@ export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariant
   cancelLabel?: string;
   contentProps?: Omit<ComponentProps<typeof DialogContent>, 'children'>;
   secondaryAction?: ReactNode;
-  steps?: { onPrevious: () => void; onNext: () => void; disablePrevious?: boolean; disableNext?: boolean };
+  /** Each arrow shows only when its handler is set; `disablePrevious`/`disableNext` grey out a shown arrow. */
+  steps?: { onPrevious?: () => void; onNext?: () => void; disablePrevious?: boolean; disableNext?: boolean };
   animateHeight?: boolean;
   children: ReactNode;
 }
