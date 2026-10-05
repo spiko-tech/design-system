@@ -194,7 +194,6 @@ export interface SpikoDialogProps extends VariantProps<typeof spikoDialogVariant
   cancelLabel?: string;
   contentProps?: Omit<ComponentProps<typeof DialogContent>, 'children'>;
   secondaryAction?: ReactNode;
-  /** Each arrow shows only when its handler is set; `disablePrevious`/`disableNext` grey out a shown arrow. */
   steps?: { onPrevious?: () => void; onNext?: () => void; disablePrevious?: boolean; disableNext?: boolean };
   animateHeight?: boolean;
   children: ReactNode;
