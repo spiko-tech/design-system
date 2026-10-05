@@ -14,7 +14,11 @@ const meta: Meta<typeof SpikoDialog> = {
     description: { table: { disable: true } },
     contentProps: { table: { disable: true } },
     secondaryAction: { table: { disable: true } },
-    steps: { table: { disable: true } },
+    steps: {
+      control: false,
+      description:
+        'Optional step arrows in the footer. Each arrow shows only when its handler (`onPrevious`, `onNext`) is set; `disablePrevious` and `disableNext` grey out a shown arrow.',
+    },
     submit: {
       control: false,
       description:
