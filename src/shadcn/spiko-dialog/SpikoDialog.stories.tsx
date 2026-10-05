@@ -57,6 +57,25 @@ const SpikoDialogWithArrows = (props: SpikoDialogProps) => {
 
 export const WithArrows: Story = { render: (args) => <SpikoDialogWithArrows {...args} /> };
 
+const SpikoDialogWithBackArrowOnly = (props: SpikoDialogProps) => {
+  const [step, setStep] = useState(0);
+  const isLastStep = step === STEP_COUNT - 1;
+  return (
+    <SpikoDialog
+      {...props}
+      submit={{
+        label: isLastStep ? 'Submit' : 'Next',
+        target: { type: 'default', onClick: () => setStep((current) => Math.min(current + 1, STEP_COUNT - 1)) },
+      }}
+      steps={step === 0 ? undefined : { onPrevious: () => setStep((current) => current - 1) }}
+    >
+      Step {step + 1} of {STEP_COUNT}
+    </SpikoDialog>
+  );
+};
+
+export const WithBackArrowOnly: Story = { render: (args) => <SpikoDialogWithBackArrowOnly {...args} /> };
+
 const STEP_HEIGHTS = ['h-24', 'h-96', 'h-48'];
 
 const SteppedContent = () => {
