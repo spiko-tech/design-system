@@ -28,7 +28,7 @@ export const DatePicker = ({
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button variant="outline" className="spiko-text-sm-regular font-normal" disabled={disabled} size="sm">
-          <Icon.Calendar className="ml-auto size-4" />
+          <Icon.Calendar className="size-4" />
           {date ? formatDate(date) : <span>{placeholder}</span>}
         </Button>
       </PopoverTrigger>
