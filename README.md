@@ -13,8 +13,8 @@ pnpm add github:spiko-tech/design-system#release-<commit-sha>
 Import the global stylesheet once, then use the components:
 
 ```tsx
-import '@spiko-tech/design-system/global.css';
 import { Button } from '@spiko-tech/design-system';
+import '@spiko-tech/design-system/global.css';
 ```
 
 ## Contents
