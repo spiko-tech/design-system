@@ -21,14 +21,14 @@ const tabsListVariants = cva('inline-flex items-center justify-center text-text-
 });
 
 const tabsTriggerVariants = cva(
-  "inline-flex items-center justify-center gap-1.5 transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex items-center justify-center gap-1.5 transition-[color,box-shadow] focus-visible:not-data-pointer-focus:border-ring focus-visible:not-data-pointer-focus:ring-[3px] focus-visible:not-data-pointer-focus:ring-ring/50 focus-visible:not-data-pointer-focus:outline-1 focus-visible:not-data-pointer-focus:outline-ring disabled:pointer-events-none disabled:opacity-50 focus-visible:data-pointer-focus:outline-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
           'data-[state=active]:shadow-sm flex-1 rounded-md px-3 py-1 spiko-text-sm-semibold whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground',
         underline:
-          'min-w-0 flex-1 basis-0 rounded-none border-b-2 border-transparent px-1 py-2 text-center spiko-text-base-semibold whitespace-normal text-text data-[state=active]:text-information data-[state=inactive]:hover:border-border data-[state=inactive]:hover:text-information max-sm:spiko-text-xs-semibold sm:px-2 lg:flex-none lg:px-3 lg:whitespace-nowrap',
+          'shrink-0 rounded-none border-b-2 border-transparent px-1 py-2 text-center spiko-text-base-semibold whitespace-nowrap text-text data-[state=active]:text-information data-[state=inactive]:hover:border-border data-[state=inactive]:hover:text-information max-sm:spiko-text-xs-semibold sm:px-2 lg:px-3',
       },
     },
     defaultVariants: { variant: 'default' },
@@ -123,14 +123,37 @@ const TabsList = ({
   );
 };
 
+const markPointerFocus = (event: React.PointerEvent<HTMLButtonElement>) => {
+  event.currentTarget.dataset.pointerFocus = '';
+};
+
+const clearPointerFocus = (event: React.SyntheticEvent<HTMLButtonElement>) => {
+  delete event.currentTarget.dataset.pointerFocus;
+};
+
 const TabsTrigger = ({
   className,
   variant,
+  onPointerDown,
+  onKeyDown,
+  onBlur,
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Trigger> & VariantProps<typeof tabsTriggerVariants>) => (
   <TabsPrimitive.Trigger
     data-slot="tabs-trigger"
     className={cn(tabsTriggerVariants({ variant, className }))}
+    onPointerDown={(event) => {
+      markPointerFocus(event);
+      onPointerDown?.(event);
+    }}
+    onKeyDown={(event) => {
+      clearPointerFocus(event);
+      onKeyDown?.(event);
+    }}
+    onBlur={(event) => {
+      clearPointerFocus(event);
+      onBlur?.(event);
+    }}
     {...props}
   />
 );
