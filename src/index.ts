@@ -42,5 +42,6 @@ export * from './shadcn/sonner/sonner.js';
 export * from './shadcn/spiko-dialog/SpikoDialog.js';
 export * from './shadcn/switch/switch.js';
 export * from './shadcn/tabs/tabs.js';
+export * from './shadcn/textarea/textarea.js';
 export * from './shadcn/tooltip/tooltip.js';
 export { cn } from './utils.js';
