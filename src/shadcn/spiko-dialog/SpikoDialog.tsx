@@ -42,7 +42,7 @@ const useMeasuredHeight = () => {
   const [height, setHeight] = useState<number | 'auto'>('auto');
   const measure = useCallback((node: HTMLDivElement | null) => {
     if (!node) return;
-    const observer = new ResizeObserver(() => setHeight(node.offsetHeight));
+    const observer = new ResizeObserver(([entry]) => setHeight(entry.borderBoxSize[0].blockSize));
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
