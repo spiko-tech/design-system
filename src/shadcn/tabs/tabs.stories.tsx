@@ -43,3 +43,27 @@ const renderTabs =
 export const Default: Story = { render: renderTabs('default') };
 
 export const Underline: Story = { render: renderTabs('underline') };
+
+const manyTabs = [
+  { value: 'general', label: 'General' },
+  { value: 'users', label: 'Users' },
+  { value: 'banks-wallets', label: 'Bank accounts & wallets' },
+  { value: 'security', label: 'Security' },
+  { value: 'preferences', label: 'Preferences' },
+  { value: 'notifications', label: 'Notifications' },
+];
+
+export const UnderlineManyTabsNarrow: Story = {
+  args: { defaultValue: 'general' },
+  render: ({ disabled, ...args }) => (
+    <Tabs {...args}>
+      <TabsList variant="underline" className="w-90">
+        {manyTabs.map(({ value, label }) => (
+          <TabsTrigger key={value} value={value} variant="underline" disabled={disabled}>
+            {label}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+    </Tabs>
+  ),
+};
