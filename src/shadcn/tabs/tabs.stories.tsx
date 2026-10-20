@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ComponentProps } from 'react';
+import { expect, userEvent, within } from 'storybook/test';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs.js';
 
 type Args = ComponentProps<typeof Tabs> & { disabled: boolean };
@@ -66,4 +67,26 @@ export const UnderlineManyTabsNarrow: Story = {
       </TabsList>
     </Tabs>
   ),
+};
+
+const hasFocusRing = (element: Element) => getComputedStyle(element).outlineStyle !== 'none';
+
+export const FocusRingOnlyForKeyboard: Story = {
+  render: renderTabs('underline'),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const overview = canvas.getByRole('tab', { name: 'Overview' });
+    const positions = canvas.getByRole('tab', { name: 'Positions' });
+
+    await userEvent.click(overview);
+    await expect(overview).toHaveFocus();
+    await expect(hasFocusRing(overview)).toBe(false);
+
+    await userEvent.keyboard('{ArrowRight}');
+    await expect(positions).toHaveFocus();
+    await expect(hasFocusRing(positions)).toBe(true);
+
+    await userEvent.click(overview);
+    await expect(hasFocusRing(overview)).toBe(false);
+  },
 };

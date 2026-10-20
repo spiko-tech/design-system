@@ -29,6 +29,7 @@ export * from './shadcn/calendar/calendar.js';
 export * from './shadcn/checkbox/checkbox.js';
 export * from './shadcn/date-picker/DatePicker.js';
 export * from './shadcn/dropdown-menu/dropdown-menu.js';
+export * from './shadcn/hooks/use-input-modality.js';
 export * from './shadcn/hooks/use-mobile.js';
 export * from './shadcn/input-otp/input-otp.js';
 export * from './shadcn/input/input.js';

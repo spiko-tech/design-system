@@ -4,6 +4,8 @@
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant keyboard-focus (&:focus-visible:not(:where([data-input-modality='pointer'] *)));
+@custom-variant pointer-focus (&:focus-visible:where([data-input-modality='pointer'] *));
 
 :root {
   /* SPIKO Design System Colors */
