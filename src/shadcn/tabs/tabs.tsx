@@ -4,6 +4,7 @@ import { cn } from '@/utils.js';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { useInputModality } from '../hooks/use-input-modality.js';
 
 const Tabs = ({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Root>) => (
   <TabsPrimitive.Root data-slot="tabs" className={cn('flex flex-col gap-2', className)} {...props} />
@@ -14,26 +15,45 @@ const tabsListVariants = cva('inline-flex items-center justify-center text-text-
     variant: {
       default: 'h-9 w-fit rounded-lg bg-secondary p-1',
       underline:
-        'relative h-auto w-full items-stretch justify-start gap-1 overflow-x-auto rounded-none bg-transparent p-0 shadow-[inset_0_-1px_0_0_var(--color-border)] sm:gap-4 lg:items-center lg:gap-6',
+        'relative h-auto w-full [scrollbar-width:none] items-stretch justify-start gap-1 overflow-x-auto rounded-none bg-transparent p-0 shadow-[inset_0_-1px_0_0_var(--color-border)] sm:gap-4 lg:items-center lg:gap-6 [&::-webkit-scrollbar]:hidden',
     },
   },
   defaultVariants: { variant: 'default' },
 });
 
 const tabsTriggerVariants = cva(
-  "inline-flex items-center justify-center gap-1.5 transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex items-center justify-center gap-1.5 transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 keyboard-focus:border-ring keyboard-focus:ring-[3px] keyboard-focus:ring-ring/50 keyboard-focus:outline-1 keyboard-focus:outline-ring pointer-focus:outline-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
           'data-[state=active]:shadow-sm flex-1 rounded-md px-3 py-1 spiko-text-sm-semibold whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground',
         underline:
-          'min-w-0 flex-1 basis-0 rounded-none border-b-2 border-transparent px-1 py-2 text-center spiko-text-base-semibold whitespace-normal text-text data-[state=active]:text-information data-[state=inactive]:hover:border-border data-[state=inactive]:hover:text-information max-sm:spiko-text-xs-semibold sm:px-2 lg:flex-none lg:px-3 lg:whitespace-nowrap',
+          'shrink-0 rounded-none border-b-2 border-transparent px-1 py-2 text-center spiko-text-base-semibold whitespace-nowrap text-text data-[state=active]:text-information data-[state=inactive]:hover:border-border data-[state=inactive]:hover:text-information max-sm:spiko-text-xs-semibold sm:px-2 lg:px-3 keyboard-focus:-outline-offset-1 keyboard-focus:ring-inset',
       },
     },
     defaultVariants: { variant: 'default' },
   }
 );
+
+const scrollTriggerIntoList = ({
+  list,
+  trigger,
+  animate,
+}: {
+  list: HTMLElement;
+  trigger: HTMLElement;
+  animate: boolean;
+}) => {
+  const triggerStart = trigger.offsetLeft;
+  const triggerEnd = trigger.offsetLeft + trigger.offsetWidth;
+  const visibleStart = list.scrollLeft;
+  const visibleEnd = list.scrollLeft + list.clientWidth;
+  const behavior = animate ? 'smooth' : 'instant';
+
+  if (triggerStart < visibleStart) list.scrollTo({ left: triggerStart, behavior });
+  else if (triggerEnd > visibleEnd) list.scrollTo({ left: triggerEnd - list.clientWidth, behavior });
+};
 
 const useUnderlineIndicator = (enabled: boolean) => {
   const listRef = React.useRef<HTMLDivElement>(null);
@@ -58,6 +78,7 @@ const useUnderlineIndicator = (enabled: boolean) => {
       const { offsetLeft, offsetWidth } = active;
       indicator.style.left = `${offsetLeft}px`;
       indicator.style.width = `${offsetWidth}px`;
+      scrollTriggerIntoList({ list, trigger: active, animate });
 
       if (!animate || previousWidth === 0 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -127,13 +148,17 @@ const TabsTrigger = ({
   className,
   variant,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Trigger> & VariantProps<typeof tabsTriggerVariants>) => (
-  <TabsPrimitive.Trigger
-    data-slot="tabs-trigger"
-    className={cn(tabsTriggerVariants({ variant, className }))}
-    {...props}
-  />
-);
+}: React.ComponentProps<typeof TabsPrimitive.Trigger> & VariantProps<typeof tabsTriggerVariants>) => {
+  useInputModality();
+
+  return (
+    <TabsPrimitive.Trigger
+      data-slot="tabs-trigger"
+      className={cn(tabsTriggerVariants({ variant, className }))}
+      {...props}
+    />
+  );
+};
 
 const TabsContent = ({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Content>) => (
   <TabsPrimitive.Content data-slot="tabs-content" className={cn('flex-1 outline-none', className)} {...props} />
