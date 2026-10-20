@@ -19,7 +19,7 @@ import '@spiko-tech/design-system/global.css';
 
 ## Contents
 
-Components (`src/shadcn`): Accordion, Alert, Badge, Button, Calendar, Checkbox, DatePicker, DropdownMenu, Input, Label, Pagination, Progress, RadioGroup, Separator, Sidebar, Skeleton, SpikoDialog, Switch, Tabs, Tooltip.
+Components (`src/shadcn`): Accordion, Alert, Badge, Button, Calendar, Checkbox, DatePicker, DropdownMenu, Input, Label, Pagination, Progress, RadioGroup, Separator, Sidebar, Skeleton, SpikoDialog, Switch, Tabs, Textarea, Tooltip.
 
 Assets (`src/assets`): core icons, flags, bank and partner logos, Spiko logo.
 
