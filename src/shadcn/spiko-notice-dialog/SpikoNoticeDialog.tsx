@@ -22,7 +22,13 @@ export interface SpikoNoticeDialogProps {
   badge?: { tone: SpikoNoticeDialogBadgeTone; icon: ReactNode };
   title: string;
   description: ReactNode;
-  action?: { label: string; onAction: () => void; variant?: 'default' | 'destructive'; disabled?: boolean };
+  action?: {
+    label: string;
+    onAction: () => void;
+    variant?: 'default' | 'destructive';
+    disabled?: boolean;
+    isPending?: boolean;
+  };
   dismissLabel: string;
   closeLabel: string;
   children?: ReactNode;
@@ -75,8 +81,13 @@ export const SpikoNoticeDialog = ({
           </Button>
         </DialogClose>
         {action !== undefined && (
-          <Button variant={action.variant} onClick={action.onAction} disabled={action.disabled} className="sm:flex-1">
-            {action.label}
+          <Button
+            variant={action.variant}
+            onClick={action.onAction}
+            disabled={action.disabled === true || action.isPending === true}
+            className="sm:flex-1"
+          >
+            {action.isPending === true ? <Icon.Loader className="animate-spin" /> : action.label}
           </Button>
         )}
       </div>

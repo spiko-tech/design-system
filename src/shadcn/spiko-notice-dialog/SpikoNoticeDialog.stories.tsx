@@ -34,7 +34,7 @@ const meta: Meta<typeof SpikoNoticeDialog> = {
     action: {
       control: false,
       description:
-        'The primary button. Leave it unset for a single-button dialog, where the dismiss button becomes the primary one. Pair `variant: "destructive"` with the `destructive` badge.',
+        'The primary button. Leave it unset for a single-button dialog, where the dismiss button becomes the primary one. Pair `variant: "destructive"` with the `destructive` badge. `isPending` disables the button and shows a spinner while the action runs.',
     },
   },
   args: { closeLabel: 'Close' },
@@ -76,6 +76,13 @@ export const Destructive: Story = {
     description: "This can't be undone. Your past statements stay available in Statements.",
     action: { label: 'Delete account', onAction: () => {}, variant: 'destructive' },
     dismissLabel: 'Cancel',
+  },
+};
+
+export const Pending: Story = {
+  args: {
+    ...Destructive.args,
+    action: { label: 'Delete account', onAction: () => {}, variant: 'destructive', isPending: true },
   },
 };
 
