@@ -583,7 +583,7 @@
 
 @supports (-webkit-background-clip: text) {
   .spiko-gradient-text-black-to-spiko-blue {
-    background: linear-gradient(90deg, var(--text) 0%, var(--core-blue) 100%);
+    background-image: linear-gradient(90deg, var(--text) 0%, var(--core-blue) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -593,28 +593,32 @@
 
 /* SPIKO Gradient Background Component */
 .spiko-gradient-bg-black-to-spiko-blue {
-  background: linear-gradient(90deg, var(--text) 0%, var(--core-blue) 100%);
+  background-image: linear-gradient(90deg, var(--text) 0%, var(--core-blue) 100%);
 }
 
 .spiko-gradient-bg-black-to-spiko-blue-from-tl-to-br {
-  background: linear-gradient(to bottom right, var(--text) 35%, var(--core-blue) 100%);
+  background-image: linear-gradient(to bottom right, var(--text) 35%, var(--core-blue) 100%);
 }
 
 .spiko-gradient-bg-white-to-spiko-information-background {
-  background: linear-gradient(to bottom, var(--background) 50%, var(--information-background) 100%);
+  background-image: linear-gradient(to bottom, var(--background) 50%, var(--information-background) 100%);
 }
 
 /* SPIKO Gradient Border Component */
 .spiko-gradient-border-black-to-spiko-blue {
   border-radius: 0.375rem; /* rounded-md */
   border: 1px solid transparent;
-  background: linear-gradient(90deg, var(--text) 0%, var(--core-blue) 100%) border-box;
+  background-image: linear-gradient(90deg, var(--text) 0%, var(--core-blue) 100%);
+  background-origin: border-box;
+  background-clip: border-box;
 }
 
 .spiko-gradient-border-spiko-blue-to-black {
   border-radius: 0.375rem; /* rounded-md */
   border: 1px solid transparent;
-  background: linear-gradient(90deg, var(--core-blue) 0%, var(--text) 100%) border-box;
+  background-image: linear-gradient(90deg, var(--core-blue) 0%, var(--text) 100%);
+  background-origin: border-box;
+  background-clip: border-box;
 }
 
 .grecaptcha-badge {
