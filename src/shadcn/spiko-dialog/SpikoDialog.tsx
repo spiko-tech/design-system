@@ -24,7 +24,7 @@ export const spikoDialogVariants = cva(
     // When content exceeds the viewport height, let the sheet grow up to the viewport
     // and scroll internally (instead of overflowing off-screen).
     'flex max-h-[95svh] flex-col gap-0 overflow-hidden overscroll-contain p-0',
-    'data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
+    'max-sm:data-[state=closed]:slide-out-to-bottom max-sm:data-[state=open]:slide-in-from-bottom',
     'sm:top-[50%] sm:right-auto sm:bottom-auto sm:left-[50%] sm:w-full sm:max-w-[calc(100%-4rem)] sm:translate-x-[-50%] sm:translate-y-[-50%] sm:rounded-xl',
     'sm:data-[state=closed]:zoom-out-95 sm:data-[state=open]:zoom-in-95'
   ),
