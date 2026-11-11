@@ -12,6 +12,7 @@ import cic from './cic.png';
 import creditAgricole from './credit-agricole.svg';
 import creditCooperatif from './credit-cooperatif.png';
 import creditMutuel from './credit-mutuel.png';
+import fineco from './fineco.png';
 import fortuneo from './fortuneo.png';
 import intesaSanpaolo from './intesa-sanpaolo.svg';
 import laBanquePostale from './la-banque-postale.svg';
@@ -46,6 +47,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'credit-agricole': creditAgricole,
   'credit-cooperatif': creditCooperatif,
   'credit-mutuel': creditMutuel,
+  fineco,
   fortuneo,
   'intesa-sanpaolo': intesaSanpaolo,
   'la-banque-postale': laBanquePostale,
