@@ -2,6 +2,7 @@ import abnAmro from './abn-amro.svg';
 import asnBank from './asn-bank.png';
 import axaBanque from './axa-banque.svg';
 import bancoBpm from './banco-bpm.png';
+import banquePalatine from './banque-palatine.png';
 import banquePopulaire from './banque-populaire.png';
 import bbva from './bbva.svg';
 import belfius from './belfius.png';
@@ -46,6 +47,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'asn-bank': asnBank,
   'axa-banque': axaBanque,
   'banco-bpm': bancoBpm,
+  'banque-palatine': banquePalatine,
   'banque-populaire': banquePopulaire,
   bbva,
   belfius,
