@@ -5,6 +5,7 @@ import bancoBpm from './banco-bpm.png';
 import banquePopulaire from './banque-populaire.png';
 import bbva from './bbva.svg';
 import belfius from './belfius.png';
+import bforbank from './bforbank.png';
 import bnpParibas from './bnp-paribas.svg';
 import boursobank from './boursobank.png';
 import bper from './bper.png';
@@ -46,6 +47,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'banque-populaire': banquePopulaire,
   bbva,
   belfius,
+  bforbank,
   'bnp-paribas': bnpParibas,
   'bgl-bnp-paribas': bnpParibas,
   'bnp-paribas-fortis': bnpParibas,
