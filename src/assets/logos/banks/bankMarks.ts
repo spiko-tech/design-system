@@ -24,6 +24,7 @@ import hsbc from './hsbc.png';
 import ibanfirst from './ibanfirst.svg';
 import ing from './ing.png';
 import intesaSanpaolo from './intesa-sanpaolo.svg';
+import kbc from './kbc.png';
 import knab from './knab.svg';
 import laBanquePostale from './la-banque-postale.svg';
 import lcl from './lcl.svg';
@@ -73,6 +74,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   ibanfirst,
   ing,
   'intesa-sanpaolo': intesaSanpaolo,
+  kbc,
   knab,
   'la-banque-postale': laBanquePostale,
   lcl,
