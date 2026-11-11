@@ -38,6 +38,7 @@ import sabadell from './sabadell.svg';
 import santander from './santander.svg';
 import shine from './shine.png';
 import societeGenerale from './societe-generale.svg';
+import spuerkeess from './spuerkeess.png';
 import swissquote from './swissquote.png';
 import triodos from './triodos.png';
 import unicredit from './unicredit.png';
@@ -87,6 +88,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   santander,
   shine,
   'societe-generale': societeGenerale,
+  spuerkeess,
   swissquote,
   triodos,
   unicredit,
