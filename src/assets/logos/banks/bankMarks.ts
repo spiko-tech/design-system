@@ -5,6 +5,7 @@ import bbva from './bbva.svg';
 import belfius from './belfius.png';
 import bnpParibas from './bnp-paribas.svg';
 import boursobank from './boursobank.png';
+import bper from './bper.png';
 import caisseDepargne from './caisse-depargne.png';
 import caixabank from './caixabank.svg';
 import cic from './cic.png';
@@ -36,6 +37,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'bgl-bnp-paribas': bnpParibas,
   'bnp-paribas-fortis': bnpParibas,
   boursobank,
+  bper,
   'caisse-depargne': caisseDepargne,
   caixabank,
   cic,
