@@ -23,6 +23,7 @@ import monteDeiPaschi from './monte-dei-paschi.png';
 import n26 from './n26.png';
 import posteItaliane from './poste-italiane.png';
 import qonto from './qonto.png';
+import rabobank from './rabobank.png';
 import revolut from './revolut.svg';
 import sabadell from './sabadell.svg';
 import santander from './santander.svg';
@@ -59,6 +60,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   n26,
   'poste-italiane': posteItaliane,
   qonto,
+  rabobank,
   revolut,
   sabadell,
   santander,
