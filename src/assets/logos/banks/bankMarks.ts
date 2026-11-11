@@ -69,6 +69,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'la-banque-postale': laBanquePostale,
   lcl,
   'memo-bank': memoBank,
+  'neuflize-obc': abnAmro,
   'monte-dei-paschi': monteDeiPaschi,
   n26,
   'poste-italiane': posteItaliane,
