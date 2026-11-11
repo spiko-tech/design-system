@@ -11,6 +11,7 @@ import bper from './bper.png';
 import bunq from './bunq.png';
 import caisseDepargne from './caisse-depargne.png';
 import caixabank from './caixabank.svg';
+import ccf from './ccf.png';
 import cic from './cic.png';
 import creditAgricole from './credit-agricole.svg';
 import creditCooperatif from './credit-cooperatif.png';
@@ -53,6 +54,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   bunq,
   'caisse-depargne': caisseDepargne,
   caixabank,
+  ccf,
   cic,
   'credit-agricole': creditAgricole,
   'credit-cooperatif': creditCooperatif,
