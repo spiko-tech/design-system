@@ -19,6 +19,7 @@ import fineco from './fineco.png';
 import fortuneo from './fortuneo.png';
 import ing from './ing.png';
 import intesaSanpaolo from './intesa-sanpaolo.svg';
+import knab from './knab.svg';
 import laBanquePostale from './la-banque-postale.svg';
 import lcl from './lcl.svg';
 import memoBank from './memo-bank.png';
@@ -60,6 +61,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   fortuneo,
   ing,
   'intesa-sanpaolo': intesaSanpaolo,
+  knab,
   'la-banque-postale': laBanquePostale,
   lcl,
   'memo-bank': memoBank,
