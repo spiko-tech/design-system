@@ -8,6 +8,7 @@ import belfius from './belfius.png';
 import bnpParibas from './bnp-paribas.svg';
 import boursobank from './boursobank.png';
 import bper from './bper.png';
+import bunq from './bunq.png';
 import caisseDepargne from './caisse-depargne.png';
 import caixabank from './caixabank.svg';
 import cic from './cic.png';
@@ -48,6 +49,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'bnp-paribas-fortis': bnpParibas,
   boursobank,
   bper,
+  bunq,
   'caisse-depargne': caisseDepargne,
   caixabank,
   cic,
