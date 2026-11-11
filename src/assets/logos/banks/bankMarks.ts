@@ -20,6 +20,7 @@ import creditMutuel from './credit-mutuel.png';
 import fineco from './fineco.png';
 import fortuneo from './fortuneo.png';
 import ing from './ing.png';
+import hsbc from './hsbc.png';
 import intesaSanpaolo from './intesa-sanpaolo.svg';
 import knab from './knab.svg';
 import laBanquePostale from './la-banque-postale.svg';
@@ -63,6 +64,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'credit-mutuel': creditMutuel,
   fineco,
   fortuneo,
+  hsbc,
   ing,
   'intesa-sanpaolo': intesaSanpaolo,
   knab,
