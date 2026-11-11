@@ -22,6 +22,7 @@ import sabadell from './sabadell.svg';
 import santander from './santander.svg';
 import shine from './shine.png';
 import societeGenerale from './societe-generale.svg';
+import unicredit from './unicredit.png';
 import wise from './wise.png';
 
 export const BANK_MARKS: Readonly<Record<string, string>> = {
@@ -51,5 +52,6 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   santander,
   shine,
   'societe-generale': societeGenerale,
+  unicredit,
   wise,
 };
