@@ -19,6 +19,7 @@ import lcl from './lcl.svg';
 import memoBank from './memo-bank.png';
 import monteDeiPaschi from './monte-dei-paschi.png';
 import n26 from './n26.png';
+import posteItaliane from './poste-italiane.png';
 import qonto from './qonto.png';
 import revolut from './revolut.svg';
 import sabadell from './sabadell.svg';
@@ -52,6 +53,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'memo-bank': memoBank,
   'monte-dei-paschi': monteDeiPaschi,
   n26,
+  'poste-italiane': posteItaliane,
   qonto,
   revolut,
   sabadell,
