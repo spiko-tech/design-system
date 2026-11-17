@@ -3,18 +3,10 @@ import { Icon } from '@/assets/icons/core/Icon.js';
 import { cn } from '@/utils.js';
 import { Button } from '../button/button.js';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from '../dialog/dialog.js';
+import { spikoBadgeToneClassNames, type SpikoTone } from '../spiko-badge-tone/spikoBadgeTone.js';
 import { spikoDialogVariants } from '../spiko-dialog/SpikoDialog.js';
 
-const badgeToneClassNames = {
-  neutral:
-    'bg-linear-to-b from-background to-background-secondary-accent text-text shadow-sm shadow-black/10 ring-1 ring-border',
-  warning:
-    'bg-linear-to-b from-background to-warning-background text-warning shadow-sm shadow-warning/20 ring-1 ring-warning/15',
-  destructive:
-    'bg-linear-to-b from-background to-error-background text-error shadow-sm shadow-error/20 ring-1 ring-error/15',
-};
-
-export type SpikoNoticeDialogBadgeTone = keyof typeof badgeToneClassNames;
+export type SpikoNoticeDialogBadgeTone = SpikoTone;
 
 export interface SpikoNoticeDialogProps {
   open: boolean;
@@ -61,7 +53,7 @@ export const SpikoNoticeDialog = ({
           <span
             className={cn(
               'flex size-12 shrink-0 items-center justify-center rounded-full [&>svg]:size-6',
-              badgeToneClassNames[badge.tone]
+              spikoBadgeToneClassNames[badge.tone]
             )}
             aria-hidden="true"
           >
