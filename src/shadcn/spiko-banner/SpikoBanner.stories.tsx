@@ -10,9 +10,9 @@ const meta: Meta<typeof SpikoBanner> = {
   argTypes: {
     tone: {
       control: 'select',
-      options: ['neutral', 'warning', 'destructive'],
+      options: ['neutral', 'information', 'warning', 'destructive'],
       description:
-        '`neutral` for information the user can safely ignore, `warning` when missing it costs money or time, `destructive` when something is broken or blocked.',
+        '`neutral` for information the user can safely ignore, `information` for a tip or product hint that helps but never asks for action, `warning` when missing it costs money or time, `destructive` when something is broken or blocked.',
     },
     size: {
       control: 'select',
@@ -56,6 +56,16 @@ export const BannerDismissible: Story = {
     title: 'Your statements moved',
     description: 'Monthly statements now live under Documents.',
     dismiss: { label: 'Dismiss', onDismiss: () => {} },
+  },
+};
+
+export const BannerInformation: Story = {
+  args: {
+    tone: 'information',
+    icon: <Icon.Lightbulb />,
+    title: 'Automate your treasury',
+    description: 'Autopilot moves your surplus cash to Spiko every morning.',
+    action: <Button size="sm">Set up Autopilot</Button>,
   },
 };
 
@@ -113,5 +123,14 @@ export const InlineNeutral: Story = {
         <b>November 4, 2026</b>.
       </>
     ),
+  },
+};
+
+export const InlineInformation: Story = {
+  args: {
+    size: 'inline',
+    tone: 'information',
+    icon: <Icon.Lightbulb />,
+    description: 'You can rename this account from its settings.',
   },
 };

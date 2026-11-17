@@ -6,24 +6,28 @@ import { spikoBadgeToneClassNames, type SpikoTone } from '../spiko-badge-tone/sp
 const surfaceToneClassNames: Record<SpikoTone, string> = {
   neutral: 'border-border bg-background-secondary-accent',
   warning: 'border-warning/20 bg-warning-background',
+  information: 'border-information/20 bg-information-background',
   destructive: 'border-error/20 bg-error-background',
 };
 
 const accentToneClassNames: Record<SpikoTone, string> = {
   neutral: 'text-text-secondary',
   warning: 'text-warning',
+  information: 'text-information',
   destructive: 'text-error',
 };
 
 const inlineTitleToneClassNames: Record<SpikoTone, string> = {
   neutral: 'text-text',
   warning: 'text-warning',
+  information: 'text-information',
   destructive: 'text-error',
 };
 
 const inlineDescriptionToneClassNames: Record<SpikoTone, string> = {
   neutral: 'text-text-secondary',
   warning: 'text-warning',
+  information: 'text-information',
   destructive: 'text-error',
 };
 
