@@ -69,23 +69,23 @@ const PageBanner = ({ tone, icon, title, description, action, dismiss, className
     data-size="banner"
     role={roleForTone(tone)}
     className={cn(
-      'relative flex w-full flex-col gap-3 rounded-xl border p-4 sm:flex-row sm:items-center sm:gap-4',
+      'relative flex w-full flex-col gap-3 rounded-xl border px-4 py-3 sm:flex-row sm:items-center sm:gap-4',
       surfaceToneClassNames[tone],
       dismiss !== undefined && 'pr-12',
       className
     )}
   >
-    <div className="flex min-w-0 flex-1 items-start gap-3">
+    <div className="flex min-w-0 flex-1 items-start gap-4 sm:items-center">
       <span
         aria-hidden="true"
         className={cn(
-          'flex size-8 shrink-0 items-center justify-center rounded-full [&>svg]:size-4',
+          'flex size-8.5 shrink-0 items-center justify-center rounded-full [&>svg]:size-4',
           spikoBadgeToneClassNames[tone]
         )}
       >
         {icon}
       </span>
-      <div className="flex min-w-0 flex-1 flex-col gap-0.5 pt-1.5">
+      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <p className="spiko-text-sm-semibold text-balance text-text">{title}</p>
         {description !== undefined && (
           <div className={cn('spiko-text-sm-regular text-text-secondary', linkClassNames)}>{description}</div>
