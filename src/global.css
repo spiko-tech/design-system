@@ -223,8 +223,6 @@
   --font-twk-everett: 'TWKEverett', sans-serif;
   --font-inter: 'Inter', sans-serif;
 
-  --font-weight-semibold: 700;
-
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
@@ -472,8 +470,9 @@
 @utility spiko-heading-5-medium {
   @apply font-twk-everett text-base font-medium not-italic;
 }
+/* The designs draw TWK Everett semibold at 700, and Inter semibold at the standard 600 */
 @utility spiko-heading-5-semibold {
-  @apply font-twk-everett text-base font-semibold not-italic;
+  @apply font-twk-everett text-base font-bold not-italic;
 }
 @utility spiko-heading-5-bold {
   @apply font-twk-everett text-base font-bold not-italic;
@@ -493,7 +492,7 @@
   @apply font-twk-everett text-lg font-medium not-italic;
 }
 @utility spiko-heading-4-semibold {
-  @apply font-twk-everett text-lg font-semibold not-italic;
+  @apply font-twk-everett text-lg font-bold not-italic;
 }
 @utility spiko-heading-4-bold {
   @apply font-twk-everett text-lg font-bold not-italic;
@@ -513,7 +512,7 @@
   @apply font-twk-everett text-2xl font-medium not-italic;
 }
 @utility spiko-heading-3-semibold {
-  @apply font-twk-everett text-2xl font-semibold not-italic;
+  @apply font-twk-everett text-2xl font-bold not-italic;
 }
 @utility spiko-heading-3-bold {
   @apply font-twk-everett text-2xl font-bold not-italic;
@@ -536,7 +535,7 @@
   @apply font-twk-everett text-3xl font-medium not-italic;
 }
 @utility spiko-heading-2-semibold {
-  @apply font-twk-everett text-3xl font-semibold not-italic;
+  @apply font-twk-everett text-3xl font-bold not-italic;
 }
 @utility spiko-heading-2-bold {
   @apply font-twk-everett text-3xl font-bold not-italic;
@@ -559,7 +558,7 @@
   @apply font-twk-everett text-4xl font-medium not-italic;
 }
 @utility spiko-heading-1-semibold {
-  @apply font-twk-everett text-4xl font-semibold not-italic;
+  @apply font-twk-everett text-4xl font-bold not-italic;
 }
 @utility spiko-heading-1-bold {
   @apply font-twk-everett text-4xl font-bold not-italic;
