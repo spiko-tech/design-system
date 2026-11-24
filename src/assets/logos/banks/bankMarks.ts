@@ -1,4 +1,5 @@
 import abnAmro from './abn-amro.svg';
+import arquia from './arquia.png';
 import asnBank from './asn-bank.png';
 import axaBanque from './axa-banque.svg';
 import bancoBpm from './banco-bpm.png';
@@ -49,6 +50,7 @@ import wise from './wise.png';
 
 export const BANK_MARKS: Readonly<Record<string, string>> = {
   'abn-amro': abnAmro,
+  arquia,
   'asn-bank': asnBank,
   'axa-banque': axaBanque,
   'banco-bpm': bancoBpm,
