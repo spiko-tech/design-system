@@ -65,6 +65,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'bnp-paribas-fortis': bnpParibas,
   boursobank,
   bper,
+  bred: banquePopulaire,
   bunq,
   'caisse-depargne': caisseDepargne,
   caixabank,
