@@ -36,6 +36,7 @@ import lcl from './lcl.svg';
 import memoBank from './memo-bank.png';
 import monteDeiPaschi from './monte-dei-paschi.png';
 import n26 from './n26.png';
+import pennylane from './pennylane.svg';
 import posteItaliane from './poste-italiane.png';
 import qonto from './qonto.png';
 import rabobank from './rabobank.png';
@@ -95,6 +96,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'neuflize-obc': abnAmro,
   'monte-dei-paschi': monteDeiPaschi,
   n26,
+  pennylane,
   'poste-italiane': posteItaliane,
   qonto,
   rabobank,
