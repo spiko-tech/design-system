@@ -26,6 +26,7 @@ import fineco from './fineco.png';
 import fortuneo from './fortuneo.png';
 import hsbc from './hsbc.png';
 import ibanfirst from './ibanfirst.svg';
+import indy from './indy.png';
 import ing from './ing.png';
 import intesaSanpaolo from './intesa-sanpaolo.svg';
 import kbc from './kbc.png';
@@ -83,6 +84,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   fortuneo,
   hsbc,
   ibanfirst,
+  indy,
   ing,
   'intesa-sanpaolo': intesaSanpaolo,
   kbc,
