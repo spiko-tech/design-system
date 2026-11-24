@@ -21,6 +21,7 @@ import creditAgricole from './credit-agricole.svg';
 import creditCooperatif from './credit-cooperatif.png';
 import creditMutuelArkea from './credit-mutuel-arkea.svg';
 import creditMutuel from './credit-mutuel.png';
+import deblock from './deblock.svg';
 import fineco from './fineco.png';
 import fortuneo from './fortuneo.png';
 import hsbc from './hsbc.png';
@@ -77,6 +78,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   'credit-cooperatif': creditCooperatif,
   'credit-mutuel': creditMutuel,
   'credit-mutuel-arkea': creditMutuelArkea,
+  deblock,
   fineco,
   fortuneo,
   hsbc,
