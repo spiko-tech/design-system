@@ -19,6 +19,7 @@ import ccf from './ccf.png';
 import cic from './cic.png';
 import creditAgricole from './credit-agricole.svg';
 import creditCooperatif from './credit-cooperatif.png';
+import creditMaritime from './credit-maritime.png';
 import creditMutuelArkea from './credit-mutuel-arkea.svg';
 import creditMutuel from './credit-mutuel.png';
 import deblock from './deblock.svg';
@@ -78,6 +79,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   cic,
   'credit-agricole': creditAgricole,
   'credit-cooperatif': creditCooperatif,
+  'credit-maritime': creditMaritime,
   'credit-mutuel': creditMutuel,
   'credit-mutuel-arkea': creditMutuelArkea,
   deblock,
