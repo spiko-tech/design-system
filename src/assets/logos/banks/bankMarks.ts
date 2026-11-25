@@ -25,6 +25,7 @@ import creditMutuel from './credit-mutuel.png';
 import deblock from './deblock.svg';
 import fineco from './fineco.png';
 import fortuneo from './fortuneo.png';
+import hiway from './hiway.png';
 import hsbc from './hsbc.png';
 import ibanfirst from './ibanfirst.svg';
 import indy from './indy.png';
@@ -85,6 +86,7 @@ export const BANK_MARKS: Readonly<Record<string, string>> = {
   deblock,
   fineco,
   fortuneo,
+  hiway,
   hsbc,
   ibanfirst,
   indy,
